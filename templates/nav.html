@@ -1,0 +1,55 @@
+{% load static %}
+              <div class="col-lg order-lg-first">
+                <ul class="nav nav-tabs border-0 flex-column flex-lg-row">
+                  <li class="nav-item">
+                    <!--a href="{% url 'root:index' %}" class="nav-link active"><i class="fe fe-home"></i> 首頁</a-->
+                    <a href="{% url 'root:index' %}" class="nav-link"><i class="fe fe-home"></i> 首頁</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a href="javascript:void(0)" class="nav-link" data-toggle="dropdown"><i class="fe fe-box"></i> 會員專區</a>
+                    <div class="dropdown-menu dropdown-menu-arrow">
+                      <a href="{% url 'root:__empty' %}" class="dropdown-item ">會員功能一</a>
+                      <a href="{% url 'root:__empty' %}" class="dropdown-item ">會員功能二</a>
+                    </div>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a href="javascript:void(0)" class="nav-link" data-toggle="dropdown"><i class="fe fe-file"></i> 顧問陣容</a>
+                    <div class="dropdown-menu dropdown-menu-arrow">
+                      <a href="{% url 'root:__empty' %}" class="dropdown-item ">顧問功能一</a>
+                      <a href="{% url 'root:__empty' %}" class="dropdown-item ">顧問功能二</a>
+                    </div>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a href="javascript:void(0)" class="nav-link" data-toggle="dropdown"><i class="fe fe-check-square"></i> 功能三</a>
+                    <div class="dropdown-menu dropdown-menu-arrow">
+                      <a href="{% url 'root:__empty' %}" class="dropdown-item ">功能一</a>
+                      <a href="{% url 'root:__empty' %}" class="dropdown-item ">功能二</a>
+                    </div>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a href="javascript:void(0)" class="nav-link" data-toggle="dropdown"><i class="fe fe-image"></i> 功能四</a>
+                    <div class="dropdown-menu dropdown-menu-arrow">
+                      <a href="{% url 'root:__empty' %}" class="dropdown-item ">功能一</a>
+                      <a href="{% url 'root:__empty' %}" class="dropdown-item ">功能二</a>
+                    </div>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a href="javascript:void(0)" class="nav-link" data-toggle="dropdown"><i class="fe fe-calendar"></i> 投資講座</a>
+                    <div class="dropdown-menu dropdown-menu-arrow">
+                      <a href="{% url 'root:__empty' %}" class="dropdown-item ">功能一</a>
+                      <a href="{% url 'root:__empty' %}" class="dropdown-item ">功能二</a>
+                    </div>
+                  </li>
+                  <li class="nav-item">
+                      <a href="{% url 'root:__empty' %}" class="nav-link"><i class="fe fe-file-text"></i> 關於我們</a>
+                  </li>
+                  <!--
+                  <li class="nav-item">
+                    <a href="{% static 'tabler/gallery.html' %}" class="nav-link"><i class="fe fe-image"></i> Gallery</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{% url 'root:__empty' %}" class="nav-link"><i class="fe fe-file-text"></i> Documentation</a>
+                  </li>
+                  -->
+                </ul>
+              </div>

@@ -1,0 +1,41 @@
+<script>
+require(['c3', 'jquery'], function (c3, $) {
+    $(document).ready(function () {
+        var chart = c3.generate({
+            bindto: '#chart-pie', // id of chart wrapper
+            data: {
+                columns: [
+                    // each columns data
+                    ['data1', 63],
+                    ['data2', 44],
+                    ['data3', 12],
+                    ['data4', 14]
+                ],
+                type: 'pie', // default type of chart
+                colors: {
+                    'data1': tabler.colors["blue-darker"],
+                    'data2': tabler.colors["blue"],
+                    'data3': tabler.colors["blue-light"],
+                    'data4': tabler.colors["blue-lighter"]
+                },
+                names: {
+                    // name of each serie
+                    'data1': 'A',
+                    'data2': 'B',
+                    'data3': 'C',
+                    'data4': 'D'
+                }
+            },
+            axis: {
+            },
+            legend: {
+                show: false, //hide legend
+            },
+            padding: {
+                bottom: 0,
+                top: 0
+            },
+        });
+    });
+});
+</script>

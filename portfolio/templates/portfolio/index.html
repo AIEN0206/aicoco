@@ -1,5 +1,39 @@
-{% extends 'base.html'%}
+{% extends 'base.html'%} {% block content %}
+<div class="container" style="margin:20px auto; font-size: 30px; font-weight: 600">
+        <div class="alert alert-primary" style="text-align: center; font-size:30px; font-weight: 600">STEP1 : 設定投資目的</div>
+        <div class="row" style="text-align: center">
+                <div class="col">
+                        <form>
+                                <span style="line-height: 2.5">我的投資目標是</span>
+                                <select style="border:none; width:100px; border-bottom:1px solid #474747; text-align: center; color:#27aaf2">
+                                        <option>退休</option>
+                                        <option>教育</option>
+                                        <option>結婚</option>
+                                        <option>買房</option>
+                                        <option>旅遊</option>
+                                                                                <option>其他</option>
+                                </select>
+                                <br>
+                                <span style="line-height: 2.5">我希望能夠投資</span>
+                                <input type="number" maxlength="2" tabindex="-1" min="1" max="45" style="border:none; width:70px; border-bottom:1px solid #474747; text-align: center; color:#27aaf2"> 年之後，
+                                <br>
+                                <span style="line-height: 2.5">存款達到$</span>
+                                <input type="number" maxlength="9" style="border:none; width:200px; border-bottom:1px solid #474747; text-align: center; color:#27aaf2">元
+                                <br>
+                                <span style="line-height: 2.5">投資的起始資金是$</span>
+                                <input type="number" maxlength="9" style="border:none; width:200px; border-bottom:1px solid #474747; text-align: center; color:#27aaf2">元
+                                <br>
+                                <span style="line-height: 2.5">我能承受的風險是</span>
+                                <select style="border:none; width:240px; border-bottom:1px solid #474747; text-align: center; color:#27aaf2">
+                                        <option>高風險(高報酬)</option>
+                                        <option>中風險(一般報酬)</option>
+                                        <option>低風險(穩定報酬)</option>
+                                </select>
+                                <br>
+                                <a class="btn btn-lg btn-primary" href="{% url 'portfolio:select'%}">下一步</a>
+                        </form>
+                </div>
+        </div>
+</div>
 
-{% block content %}
-<h2>Portfolio Index</h2>
-        {% endblock %}
+{% endblock %}

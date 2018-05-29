@@ -3,4 +3,5 @@ from . import views
 app_name='portfolio'
 urlpatterns = [
     path('', views.index,name='index'),
+    path('select/', views.select, name='select'),
 ]

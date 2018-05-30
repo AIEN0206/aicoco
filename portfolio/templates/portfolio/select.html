@@ -6,7 +6,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">退休投資組合</h3>
+                    <h3 class="card-title">{{objective}}投資組合</h3>
                 </div>
                 <div class="card-body">
                     <div id="chart-pie" style="height: 12rem;"></div>
@@ -16,10 +16,10 @@
             {% include 'portfolio/pie.html' %}
 
             <ul>
-                <li>起始資金：$200000</li>
-                <li>投資年限：25年</li>
-                <li>投資目標：$500000</li>
-                <li>風險承受：高風險</li>
+                <li>起始資金：${{startDeposit}}</li>
+                <li>投資年限：{{duration}}年</li>
+                <li>投資目標：${{targetFV}}</li>
+                <li>風險承受：{{risk_choices}}</li>
             </ul>
         </div>
 
@@ -27,7 +27,7 @@
             <h2>US Stock ETFs - <span class="badge badge-primary">15%</span> 
                  <button type="button" class="btn btn-outline-secondary btn-sm ml-auto" data-toggle="popover" title="標的說明" data-content="投資美股指數型ETF，屬於高度分散">info</button>
             </h2>
-        
+
             <table class="table">
                 <thead>
                     <tr>
@@ -55,7 +55,7 @@
                         <td>15.26</td>
                         <td>0.89</td>
                         <td>
-                            <i class="fas fa-chart-line"></i>
+                            <a href="{% url 'portfolio:detail' %}"><div class="avatar"><i class="fas fa-chart-line"></i></div></a>
                         </td>
                     </tr>
                     <tr>
@@ -70,7 +70,7 @@
                         <td>15.26</td>
                         <td>0.89</td>
                         <td>
-                            <i class="fas fa-chart-line"></i>
+                                <div class="avatar"><i class="fas fa-chart-line"></i></div>
                         </td>
                     </tr>
                     <tr>
@@ -85,7 +85,7 @@
                         <td>15.26</td>
                         <td>0.89</td>
                         <td>
-                            <i class="fas fa-chart-line"></i>
+                                <div class="avatar"><i class="fas fa-chart-line"></i></div>
                         </td>
                     </tr>
                 </tbody>
@@ -226,7 +226,7 @@
             </table>
             <hr>
 
-            <button type="button" class="btn btn-primary btn-lg btn-block">送出我的選項</button>
+            <a class="btn btn-primary btn-lg btn-block" href="{% url 'portfolio:result' %}">送出我的選項</a>
         </div>
 
     </div>

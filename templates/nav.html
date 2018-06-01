@@ -8,8 +8,19 @@
                   <li class="nav-item dropdown">
                     <a href="javascript:void(0)" class="nav-link" data-toggle="dropdown"><i class="fe fe-box"></i> 會員專區</a>
                     <div class="dropdown-menu dropdown-menu-arrow">
-                      <a href="{% url 'root:__empty' %}" class="dropdown-item ">會員功能一</a>
-                      <a href="{% url 'root:__empty' %}" class="dropdown-item ">會員功能二</a>
+                      <a href="{% url 'MemberCentre:create' %}" class="dropdown-item ">新增帳戶</a>
+                      {% if request.COOKIES.account == 'aicoco' %}
+                      <a href="{% url 'MemberCentre:index' request.COOKIES.account %}" class="dropdown-item ">管理員專區</a>
+                      {% elif request.COOKIES.account %}
+                      <a href="{% url 'MemberCentre:space' request.COOKIES.account %}" class="dropdown-item ">會員空間</a>
+                      {% else %}
+                      <a href="#" class="dropdown-item " disabled>會員空間(請先登入)</a>
+                      {% endif %}
+                      {% if request.COOKIES.account %}
+                      <a href="{% url 'MemberCentre:logout' %}" class="dropdown-item ">帳戶登出</a>
+                      {% else %}
+                      <a href="{% url 'MemberCentre:login' %}" class="dropdown-item ">帳戶登入</a>
+                      {% endif %}
                     </div>
                   </li>
                   <li class="nav-item dropdown">

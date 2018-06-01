@@ -1,0 +1,234 @@
+{% extends 'base.html'%} {% block content %}
+<div class="container" style="margin:20px auto">
+    <div class="alert alert-primary" style="text-align: center; font-size:30px; font-weight: 600">STEP2 : 最佳投資組合已算出!請挑選每個類別下的精選ETFs</div>
+    <div class="row">
+        <div class="col-3">
+
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">{{objective}}投資組合</h3>
+                </div>
+                <div class="card-body">
+                    <div id="chart-pie" style="height: 12rem;"></div>
+                </div>
+            </div>
+
+            {% include 'portfolio/pie.html' %}
+
+            <ul>
+                <li>起始資金：${{startDeposit}}</li>
+                <li>投資年限：{{duration}}年</li>
+                <li>投資目標：${{targetFV}}</li>
+                <li>風險承受：{{risk_choices}}</li>
+            </ul>
+        </div>
+
+        <div class="col-9">
+            <h2>US Stock ETFs - <span class="badge badge-primary">15%</span> 
+                 <button type="button" class="btn btn-outline-secondary btn-sm ml-auto" data-toggle="popover" title="標的說明" data-content="投資美股指數型ETF，屬於高度分散">info</button>
+            </h2>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>挑選</th>
+                        <th>Ticker</th>
+                        <th>ETF名稱</th>
+                        <th>Expense Ratio</th>
+                        <th>1Yr Return</th>
+                        <th>3Yrs Return</th>
+                        <th>StdDev</th>
+                        <th>Sharpe Ratio</th>
+                        <th>info</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <input type="radio">
+                        </td>
+                        <td>XLF</td>
+                        <td>Financial Select Sector SPDR ETF</td>
+                        <td>0.14%</td>
+                        <td>18.56%</td>
+                        <td>13.99%</td>
+                        <td>15.26</td>
+                        <td>0.89</td>
+                        <td>
+                            <a href="{% url 'portfolio:detail' %}"><div class="avatar"><i class="fas fa-chart-line"></i></div></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio">
+                        </td>
+                        <td>XLF</td>
+                        <td>Financial Select Sector SPDR ETF</td>
+                        <td>0.14%</td>
+                        <td>18.56%</td>
+                        <td>13.99%</td>
+                        <td>15.26</td>
+                        <td>0.89</td>
+                        <td>
+                                <div class="avatar"><i class="fas fa-chart-line"></i></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio">
+                        </td>
+                        <td>XLF</td>
+                        <td>Financial Select Sector SPDR ETF</td>
+                        <td>0.14%</td>
+                        <td>18.56%</td>
+                        <td>13.99%</td>
+                        <td>15.26</td>
+                        <td>0.89</td>
+                        <td>
+                                <div class="avatar"><i class="fas fa-chart-line"></i></div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr>
+
+            <h2>US Stock ETFs -
+                <span class="badge badge-primary">15%</span>
+            </h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>挑選</th>
+                        <th>Ticker</th>
+                        <th>ETF名稱</th>
+                        <th>Expense Ratio</th>
+                        <th>1Yr Return</th>
+                        <th>3Yrs Return</th>
+                        <th>StdDev</th>
+                        <th>Sharpe Ratio</th>
+                        <th>info</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <input type="radio">
+                        </td>
+                        <td>XLF</td>
+                        <td>Financial Select Sector SPDR ETF</td>
+                        <td>0.14%</td>
+                        <td>18.56%</td>
+                        <td>13.99%</td>
+                        <td>15.26</td>
+                        <td>0.89</td>
+                        <td>
+                            <i class="fas fa-chart-line"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio">
+                        </td>
+                        <td>XLF</td>
+                        <td>Financial Select Sector SPDR ETF</td>
+                        <td>0.14%</td>
+                        <td>18.56%</td>
+                        <td>13.99%</td>
+                        <td>15.26</td>
+                        <td>0.89</td>
+                        <td>
+                            <i class="fas fa-chart-line"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio">
+                        </td>
+                        <td>XLF</td>
+                        <td>Financial Select Sector SPDR ETF</td>
+                        <td>0.14%</td>
+                        <td>18.56%</td>
+                        <td>13.99%</td>
+                        <td>15.26</td>
+                        <td>0.89</td>
+                        <td>
+                            <i class="fas fa-chart-line"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr>
+
+            <h2>US Stock ETFs -
+                <span class="badge badge-primary">15%</span>
+            </h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>挑選</th>
+                        <th>Ticker</th>
+                        <th>ETF名稱</th>
+                        <th>Expense Ratio</th>
+                        <th>1Yr Return</th>
+                        <th>3Yrs Return</th>
+                        <th>StdDev</th>
+                        <th>Sharpe Ratio</th>
+                        <th>info</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <input type="radio">
+                        </td>
+                        <td>XLF</td>
+                        <td>Financial Select Sector SPDR ETF</td>
+                        <td>0.14%</td>
+                        <td>18.56%</td>
+                        <td>13.99%</td>
+                        <td>15.26</td>
+                        <td>0.89</td>
+                        <td>
+                            <i class="fas fa-chart-line"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio">
+                        </td>
+                        <td>XLF</td>
+                        <td>Financial Select Sector SPDR ETF</td>
+                        <td>0.14%</td>
+                        <td>18.56%</td>
+                        <td>13.99%</td>
+                        <td>15.26</td>
+                        <td>0.89</td>
+                        <td>
+                            <i class="fas fa-chart-line"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio">
+                        </td>
+                        <td>XLF</td>
+                        <td>Financial Select Sector SPDR ETF</td>
+                        <td>0.14%</td>
+                        <td>18.56%</td>
+                        <td>13.99%</td>
+                        <td>15.26</td>
+                        <td>0.89</td>
+                        <td>
+                            <i class="fas fa-chart-line"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr>
+
+            <a class="btn btn-primary btn-lg btn-block" href="{% url 'portfolio:result' %}">送出我的選項</a>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

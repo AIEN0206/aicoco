@@ -1,0 +1,37 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<div class="my-3 my-md-5">
+    <div class="container">
+        <div class="page-header">
+            <div class="col-md-6 col-xl6">
+                <div class="card">
+                    <img class="card-img-top" src="/media/{{dates.image}}" width="10%" alt="And this isn't my nose. This is a false one.">
+                    <div class="card-header">
+                        <div class="avatar avatar-md mr-3" style="background-image: url(/media/{{dates.image}})"></div>
+                        <h3 class="card-title">{{dates.姓名}} 顧問</h3>
+                    </div>
+                    <div class="alert alert-primary" role="alert">
+                        經歷：{{dates.經歷}}
+                    </div>
+                    <div class="alert alert-warning" role="alert">
+                        學歷：{{dates.學歷}}
+                    </div>
+                    <div class="alert alert-danger" role="alert">
+                        證照：{{dates.證照}}
+                    </div>
+                    <div class="card-footer">
+                        <a href="{{dates.url}}" title="推薦影音">推薦影音I</a>
+                        <a href="#" title="推薦影音">推薦影音II</a>
+                        <a href="#" title="推薦影音">推薦影音III</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl3">
+                <h2>操盤特色</h2><div class="alert alert-danger">{{dates.操盤特色}}</div>
+            </div>
+            <!-- <div class="col-md-6 col-xl3">
+                關於
+            </div> -->
+        </div>
+    </div>
+</div>
+{% endblock %} {% block scripts %} {% endblock %}

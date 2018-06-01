@@ -1,0 +1,161 @@
+<!-- 此為管理帳密頁面 -->
+{% extends 'base.html'%} {% block content %}
+<div class="my-3 my-md-5">
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title">
+                <form class="card" method="POST">
+                    {% csrf_token %}
+                    <div class="card-body">
+                        <h3 class="card-title">會員空間</h3>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="form-label">帳號(必填)</label>
+                                    <input type="text" class="form-control" name="account" placeholder="帳號" value="{{member.account}}" disabled="">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="form-label">密碼(必填)</label>
+                                    <input type="password" class="form-control" name="password" placeholder="密碼" value="{{member.password}}">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="form-label">姓名</label>
+                                    <input type="text" class="form-control" name="name" placeholder="姓名" value="{{member.name}}">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-4">
+                                <div class="form-group">
+                                    <label class="form-label">電子郵件(必填)</label>
+                                    <input type="email" class="form-control" name="email" placeholder="email" value="{{member.email}}">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-4">
+                                <div class="form-group">
+                                    <label class="form-label">手機號碼</label>
+                                    <input type="text" class="form-control" name="cellphone" placeholder="手機號碼" pattern="[0-0]{1}[9-9]{1}[0-9]{8}" value="{{member.cellphone}}">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-4">
+                                <div class="form-group">
+                                    <label class="form-label">目前職業</label>
+                                    <input type="text" class="form-control" name="job" placeholder="職業" value="{{member.job}}">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="form-label">地址</label>
+                                    <input type="text" class="form-control" name="address" placeholder="地址" value="{{member.address}}">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-4">
+                                <div class="form-group">
+                                    <label class="form-label">生日</label>
+                                    <input type="date" class="form-control" name="birth" placeholder="City" value="{{member.birth | date:'Y-m-d'}}" disabled="">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-4">
+                                <div class="form-group">
+                                    <label class="form-label">性別</label>
+                                    <!-- <input type="text" class="form-control" name="gender" placeholder="性別" value="{{member.gender}}"> -->
+                                    <select class="form-control custom-select" name="gender">
+                                        {% if member.gender == "男" %}
+                                        <option value="None">請選擇性別</option> <!--disabled="disabled -->
+                                        <option value="男" selected="selected">男</option>
+                                        <option value="女">女</option>
+                                        <option value="其他">其他</option>
+                                        {% elif member.gender == "女" %}
+                                        <option value="None">請選擇性別</option>
+                                        <option value="男">男</option>
+                                        <option value="女" selected="selected">女</option>
+                                        <option value="其他">其他</option>
+                                        {% elif member.gender == "其他" %}
+                                        <option value="None">請選擇性別</option>
+                                        <option value="男">男</option>
+                                        <option value="女">女</option>
+                                        <option value="其他"selected="selected">其他</option>
+                                        {% else %}
+                                        <option value="None" selected="selected">請選擇性別</option>
+                                        <option value="男">男</option>
+                                        <option value="女">女</option>
+                                        <option value="其他" >其他</option>
+                                        {% endif %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="form-label">教育程度</label>
+                                    <!-- <input type="text" class="form-control" name="education" placeholder="教育程度" value="{{member.education}}"> -->
+                                    <select class="form-control custom-select" name="education">
+                                        {% if member.education == "國中畢業" %}
+                                        <option value="">請選擇教育程度</option>
+                                        <option value="國中畢業" selected="selected">國中畢業</option>
+                                        <option value="高中職畢業">高中職畢業</option>
+                                        <option value="大學畢業">大學畢業</option>
+                                        <option value="研究所畢業">研究所畢業</option>
+                                        <option value="其他">其他</option>
+                                        {% elif member.education == "高中職畢業" %}
+                                        <option value="">請選擇教育程度</option>
+                                        <option value="國中畢業">國中畢業</option>
+                                        <option value="高中職畢業" selected="selected">高中職畢業</option>
+                                        <option value="大學畢業">大學畢業</option>
+                                        <option value="研究所畢業">研究所畢業</option>
+                                        <option value="其他">其他</option>
+                                        {% elif member.education == "大學畢業" %}
+                                        <option value="">請選擇教育程度</option>
+                                        <option value="國中畢業">國中畢業</option>
+                                        <option value="高中職畢業">高中職畢業</option>
+                                        <option value="大學畢業" selected="selected">大學畢業</option>
+                                        <option value="研究所畢業">研究所畢業</option>
+                                        <option value="其他">其他</option>
+                                        {% elif member.education == "研究所畢業" %}
+                                        <option value="">請選擇教育程度</option>
+                                        <option value="國中畢業">國中畢業</option>
+                                        <option value="高中職畢業">高中職畢業</option>
+                                        <option value="大學畢業">大學畢業</option>
+                                        <option value="研究所畢業" selected="selected">研究所畢業</option>
+                                        <option value="其他">其他</option>
+                                        {% elif member.education == "其他" %}
+                                        <option value="">請選擇教育程度</option>
+                                        <option value="國中畢業">國中畢業</option>
+                                        <option value="高中職畢業">高中職畢業</option>
+                                        <option value="大學畢業">大學畢業</option>
+                                        <option value="研究所畢業">研究所畢業</option>
+                                        <option value="其他" selected="selected">其他</option>
+                                        {% else %}
+                                        <option value="" selected="selected">請選擇教育程度</option>
+                                        <option value="國中畢業">國中畢業</option>
+                                        <option value="高中職畢業">高中職畢業</option>
+                                        <option value="大學畢業">大學畢業</option>
+                                        <option value="研究所畢業">研究所畢業</option>
+                                        <option value="其他">其他</option>
+                                        {% endif %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group mb-0">
+                                    <label class="form-label">未使用</label>
+                                    <textarea rows="5" class="form-control" placeholder="None" value="" disabled=""></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer text-right">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa fa-bath" aria-hidden="true"></i> 修改</button>
+                        <a href="{% url 'MemberCentre:delete' request.COOKIES.account %}" class="btn btn-danger">刪除帳戶</a>
+                    </div>
+                </form>
+            </h1>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+<!-- <a href="#" class="btn btn-info mr-2">確定修改</a> -->

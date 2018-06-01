@@ -1,0 +1,32 @@
+{% extends 'base.html' %} {% block content %}
+<div class="my-3 my-md-5">
+    <div class="container">
+        <div class="page-header">                
+            {% for consultant in consultants%}
+            <div class="col-md-6 col-xl-4">
+                <div class="card">                    
+                    <a href="{% url 'consultant:complete' consultant.id %}">
+                        <img class="card-img-top" src="/media/{{consultant.image}}" width="10%" alt="And this isn't my nose. This is a false one.">
+                    </a>
+                    <div class="card-header">
+                        <div class="avatar avatar-md mr-3" style="background-image: url(/media/{{consultant.image}})"></div>
+                        <h3 class="card-title">{{consultant.姓名}} 顧問</h3>
+                        <div class="card-options">
+                            <a href="#" class="card-options-collapse" data-toggle="card-collapse">
+                                <i class="fe fe-chevron-up"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        經歷：{{consultant.經歷}}
+                    </div>
+                    <div class="card-body">
+                        學歷：{{consultant.學歷}}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

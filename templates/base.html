@@ -19,6 +19,7 @@
     <title>{{ pageTitle }}</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <script src="{% static 'tabler/assets/js/require.min.js' %}"></script>
     <script>
       requirejs.config({
@@ -94,7 +95,13 @@
                     <span class="avatar" style="background-image: url({% static 'tabler/demo/faces/female/25.jpg' %})"></span>
                     <span class="ml-2 d-none d-lg-block">
                       <span class="text-default">愛錢錢</span>
+                      {% if request.COOKIES.account  == 'aicoco'%}
                       <small class="text-muted d-block mt-1">管理員</small>
+                      {% elif request.COOKIES.account %}
+                      <small class="text-muted d-block mt-1">{{request.COOKIES.account}}</small>
+                      {% else %}
+                      <small class="text-muted d-block mt-1">遊客</small>
+                      {% endif %}
                     </span>
                   </a>
                   <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
@@ -115,9 +122,17 @@
                     <a class="dropdown-item" href="#">
                       <i class="dropdown-icon fe fe-help-circle"></i> 幫助
                     </a>
-                    <a class="dropdown-item" href="#">
-                      <i class="dropdown-icon fe fe-log-out"></i> 登出
-                    </a>
+                    <!--如果取得用戶端cookie有值(代表登入成功)-->
+                    {% if request.COOKIES.account %}
+                    <!--顯示登出按鈕-->
+                    <a class="dropdown-item" href={% url 'MemberCentre:logout' %}>
+                        <i class="dropdown-icon fe fe-log-out"></i> 登出</a>
+                    <!-- 如果沒有取得用戶端cookie有值(代表登入不成功) -->
+                    {% else %}
+                    <!--顯示登入按鈕-->
+                    <a class="dropdown-item" href={% url 'MemberCentre:login' %}>
+                        <i class="dropdown-icon fe fe-log-out"></i> 登入</a>
+                    {% endif %}
                   </div>
                 </div>
               </div>

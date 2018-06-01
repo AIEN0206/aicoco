@@ -1,0 +1,87 @@
+<!-- 此為管理帳密頁面 -->
+{% extends 'base.html'%} {% block content %}
+<div class="my-3 my-md-5">
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title">
+                <form class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">會員空間</h3>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="form-label">帳號</label>
+                                    <input type="text" class="form-control" disabled="" placeholder="帳號" value="{{member.account}}">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="form-label">密碼</label>
+                                    <input type="password" class="form-control" disabled="" placeholder="密碼" value="{{member.password}}">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="form-label">姓名</label>
+                                    <input type="text" class="form-control" disabled="" placeholder="姓名" value="{{member.name}}">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-4">
+                                <div class="form-group">
+                                    <label class="form-label">電子郵件</label>
+                                    <input type="email" class="form-control" disabled="" placeholder="email" value="{{member.email}}">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-4">
+                                <div class="form-group">
+                                    <label class="form-label">手機號碼</label>
+                                    <input type="text" class="form-control" disabled="" placeholder="手機號碼" value="{{member.cellphone}}">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-4">
+                                <div class="form-group">
+                                    <label class="form-label">目前職業</label>
+                                    <input type="text" class="form-control" disabled="" placeholder="職業" value="{{member.job}}">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="form-label">地址</label>
+                                    <input type="text" class="form-control" disabled="" placeholder="地址" value="{{member.address}}">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-4">
+                                <div class="form-group">
+                                    <label class="form-label">生日</label>
+                                    <input type="text" class="form-control" disabled="" placeholder="City" value="{{member.birth}}">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-4">
+                                <div class="form-group">
+                                    <label class="form-label">性別</label>
+                                    <input type="text" class="form-control" disabled="" placeholder="City" value="{{member.gender}}">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="form-label">教育程度</label>
+                                    <input type="text" class="form-control" disabled="" placeholder="City" value="{{member.education}}">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group mb-0">
+                                    <label class="form-label">未使用</label>
+                                    <textarea rows="5" class="form-control" placeholder="None" disabled="" value=""></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer text-right">
+                        <a href="{% url 'MemberCentre:update' request.COOKIES.account %}" class="btn btn-info mr-2">修改個人資料</a>
+                    </div>
+                </form>
+            </h1>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,139 @@
+{% extends 'base.html'%} {% block content %}
+<div class="container" style="margin:20px auto">
+
+    <div class="alert alert-secondary" role="alert" style="font-size:30px; font-weight: 600; text-align: center;">
+        <span class="avatar avatar-blue" style="margin-right: 10px;">ETF</span>
+        <span style="margin-right: 10px;">SPY</span>
+        <span>- SPDR S&P 500 ETF</span>
+    </div>
+
+    <div class="row">
+        <div class="col-3">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title" style="text-align: center;">Detail Information</h3>
+                </div>
+                <div class="card-body">
+                    <ul style="list-style-type: none;">
+                        <li>Category : US Equity</li>
+                        <li>Expense Ratio : 0.14</li>
+                        <li>Std Dev : 16.15</li>
+                        <li>Sharpe Ratio : 0.89</li>
+                        <li>1 Year Return : 15%</li>
+                        <li>3 Years Return : 38%</li>
+                        <li>Average Volume : 1531547</li>
+                    </ul>
+                </div>
+            </div>
+
+       </div>
+
+        <div class="col-9">
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container">
+                <div id="tradingview_6cecb"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                <script type="text/javascript">
+                    new TradingView.widget(
+                        {
+                            "height": 500,
+                            "width": 860,
+                            "symbol": "AMEX:SPY",
+                            "interval": "D",
+                            "timezone": "Asia/Taipei",
+                            "theme": "Light",
+                            "style": "1",
+                            "locale": "en",
+                            "toolbar_bg": "#f1f3f6",
+                            "enable_publishing": false,
+                            "hide_top_toolbar": true,
+                            "container_id": "tradingview_6cecb"
+                        }
+                    );
+                </script>
+            </div>
+            <!-- TradingView Widget END -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h2>
+                <i class="far fa-newspaper" style="margin-right:10px;"></i>Related News</h2>
+            <table class="table">
+
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="#">
+                                <strong>5 Top Stock Trades for Wednesday Morning </strong>
+                            </a>
+                            <div class="tag tag-blue"> - 7 hours ago</div>
+
+                            <p>Investors may have gotten to enjoy a long weekend away from the stock market, but that joy didn’t
+                                last long. Due to political worries in Italy, U.S. stocks took it on the chin Tuesday. There
+                                were some strong performers, but by and large stocks declined. Here are our top stock trades
+                                going forward.Top Stock Trades for Tomorrow #1: S&P 500 (SPY)</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#">
+                                <strong>5 Top Stock Trades for Wednesday Morning </strong>
+                            </a>
+                            <div class="tag tag-blue"> - 7 hours ago</div>
+
+                            <p>Investors may have gotten to enjoy a long weekend away from the stock market, but that joy didn’t
+                                last long. Due to political worries in Italy, U.S. stocks took it on the chin Tuesday. There
+                                were some strong performers, but by and large stocks declined. Here are our top stock trades
+                                going forward.Top Stock Trades for Tomorrow #1: S&P 500 (SPY)</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#">
+                                <strong>5 Top Stock Trades for Wednesday Morning </strong>
+                            </a>
+                            <div class="tag tag-blue"> - 7 hours ago</div>
+
+                            <p>Investors may have gotten to enjoy a long weekend away from the stock market, but that joy didn’t
+                                last long. Due to political worries in Italy, U.S. stocks took it on the chin Tuesday. There
+                                were some strong performers, but by and large stocks declined. Here are our top stock trades
+                                going forward.Top Stock Trades for Tomorrow #1: S&P 500 (SPY)</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#">
+                                <strong>5 Top Stock Trades for Wednesday Morning </strong>
+                            </a>
+                            <div class="tag tag-blue"> - 7 hours ago</div>
+
+                            <p>Investors may have gotten to enjoy a long weekend away from the stock market, but that joy didn’t
+                                last long. Due to political worries in Italy, U.S. stocks took it on the chin Tuesday. There
+                                were some strong performers, but by and large stocks declined. Here are our top stock trades
+                                going forward.Top Stock Trades for Tomorrow #1: S&P 500 (SPY)</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#">
+                                <strong>5 Top Stock Trades for Wednesday Morning </strong>
+                            </a>
+                            <div class="tag tag-blue"> - 7 hours ago</div>
+
+                            <p>Investors may have gotten to enjoy a long weekend away from the stock market, but that joy didn’t
+                                last long. Due to political worries in Italy, U.S. stocks took it on the chin Tuesday. There
+                                were some strong performers, but by and large stocks declined. Here are our top stock trades
+                                going forward.Top Stock Trades for Tomorrow #1: S&P 500 (SPY)</p>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

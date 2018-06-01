@@ -1,0 +1,60 @@
+{% extends 'base.html'%} {% block content %}
+
+<body class="">
+    <div class="page">
+        <div class="page-single">
+            <div class="container">
+                <div class="row">
+                    <div class="col col-login mx-auto">
+                        <div class="text-center mb-6">
+                            <img src="./assets/brand/tabler.svg" class="h-6" alt="">
+                        </div>
+                        <form class="card" action="" method="post">
+                            {% csrf_token %}
+                            <div class="card-body p-6">
+                                <div class="card-title">建立帳戶</div>
+                                <div class="form-group">
+                                    <label class="form-label">帳號</label>
+                                    <input type="text" name="account" class="form-control" placeholder="Enter account">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">密碼</label>
+                                    <input type="password" name="password" class="form-control" placeholder="Password">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">確認密碼</label>
+                                    <input type="password" name="password2" class="form-control" placeholder="Password">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">電子郵件</label>
+                                    <input type="email" name="email" class="form-control" placeholder="Enter email">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">生日</label>
+                                    <input type="date" name="birth" class="form-control" placeholder="生日">
+                                </div>
+                                <div class="form-group">
+                                    <label class="custom-control custom-checkbox">
+                                        <input type="radio" name="agree" value="checked" class="custom-control-input" />
+                                        <span class="custom-control-label">同意
+                                            <a href="#">條款及政策</a>
+                                        </span>
+                                        <input type="radio" name="agree" value="unchecked" class="custom-control-input" checked style="display:none" />
+                                    </label>
+                                </div>
+                                <div class="form-footer">
+                                    <button type="submit" class="btn btn-primary btn-block">建立帳號</button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="text-center text-muted">
+                            已有帳號?
+                            <a href="{% url 'MemberCentre:login' %}">登入</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}

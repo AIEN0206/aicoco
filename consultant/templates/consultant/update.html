@@ -1,0 +1,48 @@
+{% extends 'base.html'%} {% block content %}
+<div class="my-3 my-md-5">
+    <div class="container">
+        <div class="page-header">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group row">
+                    <label for="姓名" class="col-sm-2 col-form-label">姓名</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="姓名" id="姓名" placeholder="姓名" value={{consultant.姓名}}>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="學歷" class="col-sm-2 col-form-label">學歷</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="學歷" id="學歷" placeholder="學歷" value={{consultant.學歷}}>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="經歷" class="col-sm-2 col-form-label">經歷</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="經歷" id="經歷" placeholder="經歷" value={{consultant.經歷}}>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="證照" class="col-sm-2 col-form-label">證照</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="證照" id="證照" placeholder="證照" value={{consultant.證照}}>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="image" class="col-sm-2 col-form-label col-form-label-lg">大頭照</label>
+                    <div class="col-sm-10">
+                        <input type="file" class="form-control form-control-lg" name="image" id="image">
+                    </div>
+                </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-10 offset-md-2">
+                <button type="submit" class="btn btn-primary">
+                    <i class="fa fa-bath" aria-hidden="true"></i> 修改</button>
+            </div>
+        </div>
+        </form>
+    </div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<div class="my-3 my-md-5">
+    <div class="container">
+        <!-- <div class="page-header">            -->
+            <div class="col-md-6 col-xl-4">
+                <div class="card">
+                    <img class="card-img-top" src="/media/{{dates.image}}" width="10%" alt="And this isn't my nose. This is a false one.">
+                    <div class="card-header">
+                        <div class="avatar avatar-md mr-3" style="background-image: url(/media/{{dates.image}})"></div>
+                        <h3 class="card-title">{{dates.姓名}} 顧問</h3>                        
+                    </div>
+                    <div class="alert alert-primary" role="alert">
+                        經歷：{{dates.經歷}}
+                    </div>
+                    <div class="alert alert-warning" role="alert">
+                        學歷：{{dates.學歷}}
+                    </div>
+                    <div class="alert alert-danger" role="alert">
+                        證照：{{dates.證照}}
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://www.youtube.com/watch?v=Ou4SYzxdwr8" title="推薦影音">推薦影音</a>
+                    </div>
+                </div>
+                <div>
+                    關於
+                    現任：華冠投顧 投資管理部 副總經理
+
+                    證照︰證券分析師
+                    
+                    經歷 :
+                    三立88理財有方特約邀訪來賓
+                    三立財經台盤中連線特約分析師
+                    亞洲投顧副總
+                    永誠投顧副總
+                    一指賺籌碼分析系統發明人
+                    
+                    操作理念:
+                    簡單、量化
+                    股票漲，靠錢堆，漲升的過程中，多數是有共通邏輯的，量會如何？價會如何？K線表現如何？籌碼表現如何？透過量價籌碼的精算，找出當前正在多頭運動的股票，賺取最好賺的一段，減少時間成本及抱股風險。    
+                </div>
+            </div>       
+        <!-- </div> -->
+    </div>
+</div>
+{% endblock %} {% block scripts %} {% endblock %}

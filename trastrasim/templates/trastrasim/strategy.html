@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<div class="my-3 my-md-5">
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title">
+                Strategy
+            </h1>           
+        </div>
+        <h3>Your profit is: {{res}}$</h3>
+        <h3>Your profit is: {{netBCR}}%</h3>
+        <h3>Day in: {{buy}}</h3>
+        <h3>Day in: {{buyP}}</h3>
+        <h3>Day out: {{sell}}</h3>
+        <h3>Day out: {{sellP}}</h3>
+        <h3>Benefit: {{benefit}}$</h3>
+        
+          
+    </div>
+</div>
+{% endblock %} {% block scripts %} {% endblock %}

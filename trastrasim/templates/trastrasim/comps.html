@@ -1,0 +1,42 @@
+{% extends 'base.html' %}{% block content %}
+
+<div class="my-3 my-md-5">
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title">
+                Companies Infomations
+            </h1>
+
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>CompanyID</th>
+                    <th>CompanyName</th>
+                    <th>CompanyInfo1</th>
+                    <th>CompanyInfo2</th>
+                    <th>CompanyInfo3</th>
+                    <th>CompanyInfo4</th>
+                    <th></th>
+                </tr>
+            </thead>
+    
+            <tbody>
+                {% for comp in comps %}
+                <tr>
+                    <td>{{comp.CompanyID}}</td>
+                    <td>{{comp.CompanyName}}</td>
+                    <td>null</td>
+                    <td>null</td>
+                    <td>null</td>
+                    <td>null</td>
+                    <td><a class="btn btn-light" href="{% url 'trastrasim:strategychoice' comp.CompanyID %}" role="button"><i class="fas fa-arrow-circle-right"></i></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %} {% block scripts %} {% endblock %}

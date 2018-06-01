@@ -1,0 +1,64 @@
+{% extends 'base.html' %}{% block content %}
+
+
+
+
+
+
+<div class="my-3 my-md-5">
+    <div class="container">
+        <h2>{{comp.CompanyName}}</h2>
+        <h5>{{comp.CompanyID}}</h5>
+
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group row">
+
+                <label for="StockChoice" class="col-sm-2 col-form-label text-right">Strategy Choice</label>
+                <div class="col-sm-8">
+                    <select class="form-control" id="StockChoice" name="StockChoice">
+                        <option value="0">Select</option>
+                        <option value="1">Stragegy 1</option>
+                        <option value="2">Stragegy 2</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary col-sm-2">Search</button>
+            </div>
+
+        </form>
+
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>TradingVolume</th>
+                    <th>TurnOverinvalue</th>
+                    <th>OpeningPrice</th>
+                    <th>Highestprice</th>
+                    <th>Lowestprice</th>
+                    <th>Closingprice</th>
+                    <th>Pricedifference</th>
+                    <th>NumberofTransactions</th>
+                </tr>
+            </thead>
+            <!-- Date,TradingVolume,TurnOverinvalue,OpeningPrice,Highestprice,Lowestprice,Closingprice,Pricedifference,NumberofTransactions, -->
+            <tbody>
+                {% for data in datas %}
+                <tr>
+                    <td>{{data.Date}}</td>
+                    <td>{{data.TradingVolume}}</td>
+                    <td>{{data.TurnOverinvalue}}</td>
+                    <td>{{data.OpeningPrice}}</td>
+                    <td>{{data.HighestPrice}}</td>
+                    <td>{{data.LowestPrice}}</td>
+                    <td>{{data.ClosingPrice}}</td>
+                    <td>{{data.PriceDifference}}</td>
+                    <td>{{data.NumberofTransactions}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %} {% block scripts %} {% endblock %}

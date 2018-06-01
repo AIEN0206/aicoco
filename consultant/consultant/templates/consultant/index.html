@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% block content %} {% for consultant in consultants%}
+<div class="col-md-6 col-xl-4">
+    <div class="card">
+        <div class="card-header">
+            <div class="avatar avatar-md mr-3" style="background-image: url(#.jpg)"></div>
+            <h3 class="card-title">{{consultant.姓名}} 顧問</h3>
+            <div class="card-options">
+                <a href="#" class="card-options-collapse" data-toggle="card-collapse">
+                    <i class="fe fe-chevron-up"></i>
+                </a>                
+            </div>
+        </div>
+        <div class="card-body">
+            經歷：{{consultant.經歷}}
+        </div>
+        <div class="card-footer">
+            學歷：{{consultant.學歷}}
+        </div>
+    </div>
+</div>
+{% endfor %} {% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'base.html'%} {% block content %}
+<div class="container" style="margin:20px auto">
+    <div class="alert alert-primary" style="text-align: center; font-size:30px; font-weight: 600">AI最佳投資組合 - Result</div>
+    <div class="row">
+        <div class="col-3">
+
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">退休投資組合</h3>
+                </div>
+                <div class="card-body">
+                    <div id="chart-pie" style="height: 12rem;"></div>
+                </div>
+            </div>
+
+            {% include 'portfolio/pie.html' %}
+
+            <ul>
+                <li>起始資金：$200000</li>
+                <li>投資年限：25年</li>
+                <li>投資目標：$500000</li>
+                <li>風險承受：高風險</li>
+            </ul>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title" style="text-align: center;">投資組合</h3>
+                </div>
+                <div class="card-body">
+                    <ul style="list-style-type: none;">
+                        <li>SPY - 16%</li>
+                        <li>AVA - 15%</li>
+                        <li>SPY - 16%</li>
+                        <li>AVA - 15%</li>
+                        <li>SPY - 16%</li>
+                        <li>AVA - 15%</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-9">
+                <div class="alert alert-secondary" role="alert" style="font-size: 26px; font-weight:600; text-align: center;">
+                        <!-- <span class="stamp stamp-md bg-blue mr-3">
+                                <i class="fe fe-dollar-sign"></i>
+                              </span> -->
+                              投資組合3年回測績效 - <a href="#" class="btn btn-success" style="font-size: 24px; font-weight:600;">+37%</a>
+                      </div>
+               
+            {% include 'portfolio/backtest.html' %}
+            <div style="font-size: 26px; font-weight:600; text-align: centero;">
+                          投資20年後要達成存款目標，你需要每個月投資 <a href="#" class="btn btn-success" style="font-size: 24px; font-weight:600;">$20000</a>
+                  </div>
+           
+        {% include 'portfolio/fvtest.html' %}
+
+
+        </div>
+
+    </div>
+</div>
+{% endblock %}

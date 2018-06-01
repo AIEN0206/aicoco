@@ -6,30 +6,36 @@ require(['c3', 'jquery'], function (c3, $) {
             data: {
                 columns: [
                     // each columns data
-                    ['data1', 63],
-                    ['data2', 44],
-                    ['data3', 12],
-                    ['data4', 14]
+                    ['data1', {{usStockPct}}],
+                    ['data2', {{worldStockPct}}],
+                    ['data3', {{emerStockPct}}],
+                    ['data4', {{sectorStockPct}}],
+                    ['data5', {{usBondPct}}],
+                    ['data6', {{worldBondPct}}]
                 ],
                 type: 'pie', // default type of chart
                 colors: {
-                    'data1': tabler.colors["blue-darker"],
+                    'data1': tabler.colors["blue-light"],
                     'data2': tabler.colors["blue"],
-                    'data3': tabler.colors["blue-light"],
-                    'data4': tabler.colors["blue-lighter"]
+                    'data3': tabler.colors["red"],
+                    'data4': tabler.colors["pink"],
+                    'data5': tabler.colors["green"],
+                    'data6': tabler.colors["green-light"]
                 },
                 names: {
                     // name of each serie
-                    'data1': 'A',
-                    'data2': 'B',
-                    'data3': 'C',
-                    'data4': 'D'
+                    'data1': 'US Stock',
+                    'data2': 'World Stock',
+                    'data3': 'Emerging Market Stock',
+                    'data4': 'Sector Stock',
+                    'data5': 'US Bond',
+                    'data6': 'World Bond'
                 }
             },
             axis: {
             },
             legend: {
-                show: false, //hide legend
+                show: true, //hide legend
             },
             padding: {
                 bottom: 0,

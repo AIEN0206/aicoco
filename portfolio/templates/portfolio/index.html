@@ -3,16 +3,16 @@
         <div class="alert alert-primary" style="text-align: center; font-size:30px; font-weight: 600">STEP1 : 設定投資目的</div>
         <div class="row" style="text-align: center">
                 <div class="col">
-                        <form method="POST">
+                        <form method="POST" action="{% url 'portfolio:select' %}">
                                 {% csrf_token %}
                                 <span style="line-height: 2.5">我的投資目標是</span>
-                                <select name="objective" style="border:none; width:100px; border-bottom:1px solid #474747; text-align: center; color:#27aaf2">
-                                        <option value="retire">退休</option>
-                                        <option value="education">教育</option>
-                                        <option value="wedding">結婚</option>
-                                        <option value="house">買房</option>
-                                        <option value="travel">旅遊</option>
-                                        <option value="other">其他</option>
+                                <select name="objective" id="objective" style="border:none; width:100px; border-bottom:1px solid #474747; text-align: center; color:#27aaf2">
+                                        <option value="退休">退休</option>
+                                        <option value="教育">教育</option>
+                                        <option value="結婚">結婚</option>
+                                        <option value="買房">買房</option>
+                                        <option value="旅遊">旅遊</option>
+                                        <option value="其他">其他</option>
                                 </select>
                                 <br>
                                 <span style="line-height: 2.5">我希望能夠投資</span>
@@ -26,12 +26,12 @@
                                 <br>
                                 <span style="line-height: 2.5">我能承受的風險是</span>
                                 <select name="risk_choices" style="border:none; width:240px; border-bottom:1px solid #474747; text-align: center; color:#27aaf2">
-                                        <option value="high">高風險(高報酬)</option>
-                                        <option value="med">中風險(一般報酬)</option>
-                                        <option value="low">低風險(穩定報酬)</option>
+                                        <option value="高風險">高風險(高報酬)</option>
+                                        <option value="中風險">中風險(一般報酬)</option>
+                                        <option value="低風險">低風險(穩定報酬)</option>
                                 </select>
                                 <br>
-                                <button type="submit" class="btn btn-lg btn-primary" href="{% url 'portfolio:select'%}">下一步</a>
+                                <button type="submit" class="btn btn-lg btn-primary" >下一步</a>
                         </form>
                 </div>
         </div>

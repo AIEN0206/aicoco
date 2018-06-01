@@ -17,7 +17,9 @@ class Consultant(models.Model):
     經歷 = models.CharField(max_length=100)
     證照 = models.CharField(max_length=100)
     image = models.CharField(max_length=45, blank=True, null=True)
-
+    操盤特色 = models.CharField(max_length=500)
+    url = models.CharField(max_length=100)
+    
     class Meta:
         managed = False
         db_table = 'consultants'

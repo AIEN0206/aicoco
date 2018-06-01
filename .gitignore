@@ -1,6 +1,7 @@
 /.git
 /.vscode
-
+#myigfile
+migrations/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -1,8 +1,5 @@
 from django.contrib import admin
 
-from import_export.admin import ImportExportModelAdmin
-from .models import TSMC,FOXC,COMP
-
 # Register your models here.
 
 # @admin.register(TSMC)

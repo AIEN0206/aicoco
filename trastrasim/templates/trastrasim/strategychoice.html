@@ -1,14 +1,54 @@
-{% extends 'base.html' %}{% block content %}
-
-
-
-
-
+{% extends 'base.html' %}{% load static %}
+{% block content %}
 
 <div class="my-3 my-md-5">
     <div class="container">
+        <a class="btn btn-outline-dark" href="{% url 'trastrasim:companyinfo' %}" role="button">
+            <i class="fas fa-arrow-alt-circle-left"></i> Last Page</a>
+
+        <hr>
+
         <h2>{{comp.CompanyName}}</h2>
         <h5>{{comp.CompanyID}}</h5>
+
+        <hr>
+
+        <div class="card-group">
+            <div class="card">
+                <img class="card-img-top" src="{% static 'images/barupdn.png' %}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">BarUpDown</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content
+                        is a little bit longer.</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Defaul Strategy</small>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="{% static 'images/smileface.png' %}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Smailing Face</h5>
+                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Defaul Strategy</small>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="{% static 'images/Consecutive-Down-Days-Trading-Winning-Example.png' %}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">consecutive up/down</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card
+                        has even longer content than the first to show that equal height action.</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Defaul Strategy</small>
+                </div>
+            </div>
+        </div>
+
+        <hr>
 
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
@@ -18,11 +58,11 @@
                 <div class="col-sm-8">
                     <select class="form-control" id="StockChoice" name="StockChoice">
                         <option value="0">Select</option>
-                        <option value="1">Stragegy 1</option>
-                        <option value="2">Stragegy 2</option>
+                        <option value="1">BarUpDown</option>
+                        <option value="2">Smiling Face</option>
                     </select>
                 </div>
-                <button type="submit" class="btn btn-primary col-sm-2">Search</button>
+                <button type="submit" class="btn btn-outline-primary col-sm-2">Search</button>
             </div>
 
         </form>

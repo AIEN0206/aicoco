@@ -9,7 +9,7 @@ class COMP(models.Model):
     Abbreviation = models.CharField(db_column='Abbreviation', max_length=10, blank=True, null=True)
        
     class Meta:
-        db_table = "COMP"
+        db_table = "companies_of_tw50"
         # managed= True
 
 class STPR(models.Model):
@@ -26,39 +26,5 @@ class STPR(models.Model):
 
     class Meta:
         # managed = False
-        db_table = 'stocksprices'
+        db_table = 'stocksprices_of_tw50'
         unique_together = (('CompanyID', 'Date'),)
-
-class TSMC(models.Model):
-    Date = models.CharField(max_length=20, primary_key=True)
-    TradingVolume = models.CharField(max_length=20)
-    TurnOverinvalue = models.CharField(max_length=20)
-    OpeningPrice = models.CharField(max_length=20)
-    HighestPrice = models.CharField(max_length=20)
-    LowestPrice = models.CharField(max_length=20)
-    ClosingPrice = models.CharField(max_length=20)
-    PriceDifference = models.CharField(max_length=20)
-    NumberofTransactions = models.CharField(max_length=20)
-    
-    class Meta:
-        db_table = "TSMC"
-        # managed= True
-
-class FOXC(models.Model):
-    Date = models.CharField(max_length=20, primary_key=True)
-    TradingVolume = models.CharField(max_length=20)
-    TurnOverinvalue = models.CharField(max_length=20)
-    OpeningPrice = models.CharField(max_length=20)
-    HighestPrice = models.CharField(max_length=20)
-    LowestPrice = models.CharField(max_length=20)
-    ClosingPrice = models.CharField(max_length=20)
-    PriceDifference = models.CharField(max_length=20)
-    NumberofTransactions = models.CharField(max_length=20)
-       
-    class Meta:
-        db_table = "FOXC"
-        # managed= True
-    
-
-# "Date","TradingVolume","TurnOverinvalue","OpeningPrice","Highestprice","Lowestprice","Closingprice","Pricedifference","NumberofTransactions",
-

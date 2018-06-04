@@ -27,9 +27,9 @@ def strategy_choice(request,id):
     title= "StockS"
     comp= COMP.objects.get(CompanyID=id)
     datas= STPR.objects.filter(CompanyID=id)
+    Simulator(datas).showchart()
     if request.method =="POST":
         choice= request.POST['StockChoice']
-        print(choice)
         net= strategy(choice,id)
         res= net[0]
         buy= net[1]
@@ -38,6 +38,8 @@ def strategy_choice(request,id):
         sell= net[4]
         sellP= net[5]
         benefit= net[6]
+        # scripts= net[7]
+        # div= net[8]
         netBCR= round(res/costC*100,2)
         return render(request,'trastrasim/strategy.html',locals())
         

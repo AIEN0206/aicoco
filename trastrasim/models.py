@@ -25,6 +25,6 @@ class STPR(models.Model):
     NumberofTransactions = models.CharField(db_column='NumberofTransactions', max_length=20)  # Field name made lowercase.
 
     class Meta:
-        # managed = False
+        # managed = True
         db_table = 'stocksprices_of_tw50'
         unique_together = (('CompanyID', 'Date'),)

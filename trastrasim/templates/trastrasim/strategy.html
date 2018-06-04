@@ -14,8 +14,12 @@
         <h3>Day out: {{sell}}</h3>
         <h3>Day out: {{sellP}}</h3>
         <h3>Benefit: {{benefit}}$</h3>
-        
+
+        {% include 'out.html' %}    
           
     </div>
 </div>
-{% endblock %} {% block scripts %} {% endblock %}
+{% endblock %} {% block scripts %}
+<script src="https://cdn.pydata.org/bokeh/release/bokeh-0.12.16.min.js"></script>
+<script src="https://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.16.min.js"></script>
+<script src="https://cdn.pydata.org/bokeh/release/bokeh-tables-0.12.16.min.js"></script> {% endblock %}

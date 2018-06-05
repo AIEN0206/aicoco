@@ -18,7 +18,11 @@ def index(request):
 
 def company_info(request):
     title = "Company Infomations"
-    comps= COMP.objects.all()          
+    comps= COMP.objects.all()      
+    datas= STPR.objects.all()    
+    # for comp in comps:
+    #     datas= STPR.objects.filter(CompanyID= comp.CompanyID)            
+    rows= zip([comp for comp in comps], [data for data in datas.filter(Date__icontains= '107/06/01', ClosingPrice__regex= r'[[:digit:]]+')])
 
     return render(request, 'trastrasim/comps.html', locals())    
 
@@ -26,7 +30,7 @@ def company_info(request):
 def strategy_choice(request,id):
     title= "StockS"
     comp= COMP.objects.get(CompanyID=id)
-    datas= STPR.objects.filter(CompanyID=id)
+    datas= STPR.objects.filter(CompanyID=id, Date__icontains= '107/')
     Simulator(datas).showchart()
     if request.method =="POST":
         choice= request.POST['StockChoice']
@@ -38,9 +42,13 @@ def strategy_choice(request,id):
         sell= net[4]
         sellP= net[5]
         benefit= net[6]
+        benesum= net[7]
+        cont= net[8]
+        rows= zip(cont,buy,buyP,sell,sellP,benefit,benesum)
         # scripts= net[7]
         # div= net[8]
         netBCR= round(res/costC*100,2)
+        comp= COMP.objects.get(CompanyID=id)        
         return render(request,'trastrasim/strategy.html',locals())
         
     return render(request,'trastrasim/strategychoice.html',locals())
@@ -55,6 +63,9 @@ def strategy(choice,id):
     if choice == '2':
         net= Simulator(datas).strategy2()
 
+    if choice == '3':
+        net= Simulator(datas).strategy3()
+
     return net
 
 def stocks_price_update(request):
@@ -66,7 +77,7 @@ def stocks_price_update(request):
                 print('stockNo: {}'.format(stockNo))               
                 zero= '0' if month < 10 else ''   
                 date= '{}{}{}01'.format(year,zero,month)           
-                dbase= STPR.objects.filter(CompanyID= stockNo, Date__iregex= r'105/0*{}/[0-9]+'.format(month))  
+                dbase= STPR.objects.filter(CompanyID= stockNo, Date__iregex= r'{}/0*{}/[0-9]+'.format(year-1911,month))  
 
                 if not dbase:  
                     print("Requesting")

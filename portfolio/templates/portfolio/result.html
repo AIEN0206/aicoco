@@ -6,53 +6,77 @@
 
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">退休投資組合</h3>
+                    <h3 class="card-title">{{objective}}投資組合</h3>
                 </div>
                 <div class="card-body">
-                    <div id="chart-pie" style="height: 12rem;"></div>
-                </div>
-            </div>
-
-            {% include 'portfolio/pie.html' %}
-
-            <ul>
-                <li>起始資金：$200000</li>
-                <li>投資年限：25年</li>
-                <li>投資目標：$500000</li>
-                <li>風險承受：高風險</li>
-            </ul>
-
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title" style="text-align: center;">投資組合</h3>
-                </div>
-                <div class="card-body">
-                    <ul style="list-style-type: none;">
-                        <li>SPY - 16%</li>
-                        <li>AVA - 15%</li>
-                        <li>SPY - 16%</li>
-                        <li>AVA - 15%</li>
-                        <li>SPY - 16%</li>
-                        <li>AVA - 15%</li>
+                    <div id="chart-pie">
+                        {% include 'portfolio/pie.html' %}
+                    </div>
+                    <ul>
+                        <li>起始資金：${{startDeposit}}</li>
+                        <li>投資年限：{{duration}}年</li>
+                        <li>投資目標：${{targetFV}}</li>
+                        <li>風險承受：{{risk_choices}}</li>
                     </ul>
                 </div>
             </div>
         </div>
 
         <div class="col-9">
-                <div class="alert alert-secondary" role="alert" style="font-size: 26px; font-weight:600; text-align: center;">
-                        <!-- <span class="stamp stamp-md bg-blue mr-3">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>ETF名稱</th>
+                        <th>Expense Ratio</th>
+                        <th>1Yr Return</th>
+                        <th>3Yrs Return</th>
+                        <th>StdDev</th>
+                        <th>Sharpe Ratio</th>
+                        <th>info</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {% for myetf in etfsInPort %}
+                    <tr>
+                        <td>{{myetf.Ticker}}</td>
+                        <td>{{myetf.etfName}}</td>
+                        <td>{{myetf.expenseRatio}}</td>
+                        <td>{{myetf.yrReturn1}}</td>
+                        <td>{{myetf.yrReturn3}}</td>
+                        <td>{{myetf.StdDev}}</td>
+                        <td>{{myetf.SharpeRatio}}</td>
+                        <td>
+                            <div class="avatar">
+                                <a href="/portfolio/detail/?Ticker={{myetf.Ticker}}">
+                                    <i class="fas fa-chart-line"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+            <hr>
+
+
+            <div class="alert alert-secondary" role="alert" style="font-size: 26px; font-weight:600; text-align: center;">
+                <!-- <span class="stamp stamp-md bg-blue mr-3">
                                 <i class="fe fe-dollar-sign"></i>
                               </span> -->
-                              投資組合3年回測績效 - <a href="#" class="btn btn-success" style="font-size: 24px; font-weight:600;">+37%</a>
-                      </div>
-               
+                投資組合3年回測績效 -
+                <a href="#" class="btn btn-success" style="font-size: 24px; font-weight:600;">+37%</a>
+            </div>
+
             {% include 'portfolio/backtest.html' %}
             <div style="font-size: 26px; font-weight:600; text-align: centero;">
-                          投資20年後要達成存款目標，你需要每個月投資 <a href="#" class="btn btn-success" style="font-size: 24px; font-weight:600;">$20000</a>
-                  </div>
-           
-        {% include 'portfolio/fvtest.html' %}
+                投資20年後要達成存款目標，你需要每個月投資
+                <a href="#" class="btn btn-success" style="font-size: 24px; font-weight:600;">$20000</a>
+            </div>
+
+            {% include 'portfolio/fvtest.html' %}
 
 
         </div>

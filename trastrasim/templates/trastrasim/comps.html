@@ -1,0 +1,65 @@
+{% extends 'base.html' %}{% block content %}
+
+<div class="my-3 my-md-5">
+    <div class="container">
+        <div class="page-header">
+            <div class="row">
+                <div class="col">
+                    <h1 class="page-title">
+                        Companies Infomations
+                    </h1>
+                </div>
+                <div class="col">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col">
+
+                                <label for="tickerN" class="sr-only">Ticker Number</label>
+                                <input type="text" class="form-control" id="tickerNumber" placeholder="搜尋代碼" name="tickerNumber">
+                            </div>
+
+                            <div class="col">
+
+                                <button type="submit" class="btn btn-primary mb-2">Search</button>
+                            </div>
+                        </div>
+                </div>
+                </form>
+            </div>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>CompanyID</th>
+                    <th>CompanyName</th>
+                    <th>成交股數</th>
+                    <th>成交金額</th>
+                    <th>收盤價</th>
+                    <th>成交筆數</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for row in rows %}
+                <tr>
+                    <td>{{row.0.CompanyID}}</td>
+                    <td>{{row.0.CompanyName}}</td>
+                    <td>{{row.1.TradingVolume}}</td>
+                    <td>{{row.1.TurnOverinvalue}}</td>
+                    <td>{{row.1.ClosingPrice}}</td>
+                    <td>{{row.1.NumberofTransactions}}</td>
+                    <td>
+                        <a class="btn btn-light" href="{% url 'trastrasim:strategychoice' row.0.CompanyID %}" role="button">
+                            <i class="fas fa-arrow-circle-right" style="color:maroon;"></i>
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %} {% block scripts %} {% endblock %}

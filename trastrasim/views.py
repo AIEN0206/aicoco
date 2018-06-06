@@ -42,7 +42,7 @@ def strategy_choice(request,id):
     if request.method =="POST":
         choice= request.POST['StockChoice']
         net= strategy(choice,id)
-        netBC= round(net[0],2)
+        netBC= round(net[0],2)*1000
         buy= net[1]
         buyP= net[2]
         costC= net[3]
@@ -55,7 +55,7 @@ def strategy_choice(request,id):
         rows= zip(cont,buy,buyP,sell,sellP,benefit,benesum)
         # scripts= net[7]
         # div= net[8]
-        netBCR= round(netBC/costC*100,2)
+        netBCR= round(netBC/1000/costC*100,2)
         netBcrPY= round(((1+netBCR/100)**(1/30)-1)*12*100,2)
         comp= COMP.objects.get(CompanyID=id)        
         return render(request,'trastrasim/strategy.html',locals())

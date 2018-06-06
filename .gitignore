@@ -4,6 +4,8 @@ tabler/
 #myigfile
 migrations/
 portfolio/migrations
+out.html
+out2.html
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

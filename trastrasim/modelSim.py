@@ -187,7 +187,7 @@ class Simulator():
 
         # line(x,y, color="#0000FF", tools="pan,wheel_zoom,box_zoom,reset",name="line_example", plot_width=800, plot_height=300)
         html = file_html(p, CDN, "my plot")
-        with open(r'trastrasim\templates\out.html','w') as f:
+        with open(r'trastrasim\templates\out2.html','w') as f:
             f.write(html)
 
         return netBC,buy,buyP,costC,sell,sellP,ben,benS,cont

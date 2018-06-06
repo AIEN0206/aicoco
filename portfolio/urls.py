@@ -6,5 +6,6 @@ urlpatterns = [
     path('select/', views.select, name='select'),
     path('detail/', views.detail, name='detail'),
     path('result/', views.result, name='result'),
-    path('analyze/', views.analyze, name='analyze')
+    path('analyze/', views.analyze, name='analyze'),
+    path('delete/', views.delete, name='delete')
 ]

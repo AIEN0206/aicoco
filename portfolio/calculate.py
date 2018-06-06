@@ -1,9 +1,9 @@
+import numpy as np
 
 def my_risk(objective, duration, risk_choices):
-    # -----start calculate Risk Score-----
+    # -----start calculate Risk Score 1~6 -----
     risk_total =0
     risk_obj = {"退休":0, "結婚":3, "旅遊":3, "教育":1, "其他":2, "買房":0}
-    # print(risk_obj["objective"])
     risk_cho = {"高風險":1,"中風險":0,"低風險":-1}
     if duration < 2:
         risk_dur = 1
@@ -15,16 +15,13 @@ def my_risk(objective, duration, risk_choices):
         risk_dur = 4
     else:
         risk_dur = 5
-
     risk_total = risk_obj[objective] + risk_cho[risk_choices] + risk_dur
-    
-    print("Total risk is risk_obj {:} + risk_cho {:} + risk_dur {:} = risk_total {:}".format(risk_obj[objective], risk_cho[risk_choices], risk_dur, risk_total))
-
     return risk_total
-
     # -----end calculate Risk Score-----  
+
 def portfolio_weight(risk_total):
      # -----Calculate Portfolio weights -----
+     #不同的risk_total指定不同的權重
     if risk_total <= 1:
         usStockPct = 10
         worldStockPct = 10
@@ -68,3 +65,12 @@ def portfolio_weight(risk_total):
         usBondPct = 0
         worldBondPct = 0
     return usStockPct, worldStockPct, emerStockPct, sectorStockPct, usBondPct, worldBondPct
+
+def monthlyPay(portRate, startDeposit, targetFV, duration):
+    # 計算每月需投資金額
+    rate = portRate/100
+    # 計算  目標存款 - 起始資金的Future value 
+    fv = targetFV + np.fv(rate/12,duration*12,0,startDeposit)
+    # 計算每月需存的金額
+    mPayment = round(np.pmt(rate/12, duration*12, 0,fv))*-1
+    return mPayment

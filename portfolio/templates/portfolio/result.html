@@ -104,8 +104,10 @@
 
             {% include 'portfolio/backtest.html' %}
             <div class="alert alert-secondary" role="alert" style="font-size: 26px; font-weight:600; text-align: center;">
-                投資{{duration}}年後達到${{targetFV}}存款，你需每月投資
-                <a href="#" class="btn btn-success" style="font-size: 24px; font-weight:600;">${{mPayment}}</a>
+                投資{{duration}}年後達到${{targetFV}}存款，你需每月
+                {% if mPayment > 0 %}投資<a href="#" class="btn btn-success" style="font-size: 24px; font-weight:600;">${{mPayment}}</a>
+                {% else %}花用<a href="#" class="btn btn-danger" style="font-size: 24px; font-weight:600;">${{mPayment}}</a>
+                {% endif %}
             </div>
 
             {% include 'portfolio/fvtest.html' %}

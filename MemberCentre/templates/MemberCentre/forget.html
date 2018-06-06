@@ -1,0 +1,44 @@
+{% extends 'base.html'%} {% block content %}
+
+<body class="">
+  <div class="page">
+    <div class="page-single">
+      <div class="container">
+        <div class="row">
+          <div class="col col-login mx-auto">
+            <div class="text-center mb-6">
+              <img src="./assets/brand/tabler.svg" class="h-6" alt="">
+            </div>
+            <form class="card" action="" method="POST">
+              {% csrf_token %}
+              <div class="card-body p-6">
+                <div class="card-title">重置您的密碼</div>
+                <div class="form-group">
+                  <label class="form-label">帳號</label>
+                  <input type="text" name="account" class="form-control" placeholder="輸入您的帳號">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">email</label>
+                  <input type="email" name="email" class="form-control" placeholder="輸入您的email">
+                </div>
+                
+                <div class="form-footer">
+                  <button type="submit" class="btn btn-primary btn-block">發送密碼到email</button>
+                </div>
+              </div>
+            </form>
+            <div class="text-center text-muted">
+             一不小心又想起密碼了?
+              <a href="{% url 'MemberCentre:login' %}">登入</a>
+            </div>
+            <div class="text-center text-muted">
+              沒有帳號?
+              <a href="{% url 'MemberCentre:create' %}">建立帳號</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+{% endblock %}

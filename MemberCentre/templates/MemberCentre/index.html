@@ -1,8 +1,18 @@
 <!-- 此為管理帳密頁面 -->
-{% extends 'base.html'%}
-{% block content %}
-<a href="#" class="btn btn-primary mb-3"><i class="fa fa-plus-circle" aria-hidden="true"></i> 會員新增</a>
+{% extends 'base.html'%} {% block content %}
+<a href="{% url 'MemberCentre:create' %}" class="btn btn-primary mb-3">
+    <i class="fa fa-plus-circle" aria-hidden="true"></i> 會員新增</a>
 <table class="table">
+    
+    
+    <form class="input-icon my-3 my-lg-0">
+        <input type="search" class="form-control search" id="search" placeholder="搜尋&hellip;" tabindex="1">
+        <div class="input-icon-addon">
+            <i class="fe fe-search"></i>
+        </div>
+    </form>
+    
+    
     <thead>
         <tr>
             <th>ID</th>
@@ -12,10 +22,7 @@
             <th>電話</th>
             <th>郵件</th>
             <th>生日</th>
-            <th>地址</th>
-            <th>性別</th>
-            <th>教育程度</th>
-            <th>職業</th>
+            <th>會員狀態</th>
         </tr>
     </thead>
     <tbody>
@@ -29,16 +36,16 @@
             <td>{{ member.cellphone }}</td>
             <td>{{ member.email }}</td>
             <td>{{ member.birth }}</td>
-            <td>{{ member.address }}</td>
-            <td>{{ member.gender }}</td>
-            <td>{{ member.education }}</td>
-            <td>{{ member.job }}</td>
+            <td>{{ member.grade }}</td>
             <td>
                 <!-- 修改按鈕會導向update的url因為在url表定義後面必須加上int才會使用views的update方法,所以
                 後面必須加上這個項目欄位的id -->
+                {% if member.account != 'aicoco' %}
                 <a href="{% url 'MemberCentre:update' member.account %}" class="btn btn-info mr-2">修改</a>
                 <!-- 刪除同修改原理 -->
-                <a href="{% url 'MemberCentre:index_delete' member.account %}" class="btn btn-danger">刪除</a></td>
+                <a href="{% url 'MemberCentre:index_delete' member.account %}" class="btn btn-danger">刪除</a>
+            </td>
+            {% endif %}
         </tr>
         {% endfor %}
     </tbody>

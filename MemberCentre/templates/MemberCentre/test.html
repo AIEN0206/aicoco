@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+        <button id="btn">Car</button>
+        <button id="btn1">Bike</button>
+        <table id="vehicles">
+          <tr>
+            <th>Type</th>
+            <th>Color</th>
+            <th>Wheels</th>
+          </tr>
+          <tr>
+            <td>Car</td>
+            <td>Red</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td>Motorcycle</td>
+            <td>Green</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>Bike</td>
+            <td>Blue</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>Car</td>
+            <td>Blue</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td>Bike</td>
+            <td>Green</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>Motorcycle</td>
+            <td>Red</td>
+            <td>2</td>
+          </tr>
+        </table>
+        <script>
+        $(function () {
+            $("#btn").click(function() {
+               var type = $(this).text();
+                $('td:first-child').parent('tr:not(:contains('+type+'))').toggle();
+            });
+            $("#btn1").click(function() {
+               var type = $(this).text();
+                $('td:first-child').parent('tr:not(:contains('+type+'))').toggle();
+            });
+        });
+        </script>
+</body>
+</html>

@@ -14,11 +14,12 @@
                       {% elif request.COOKIES.account %}
                       <a href="{% url 'MemberCentre:space' request.COOKIES.account %}" class="dropdown-item ">會員空間</a>
                       {% else %}
-                      <a href="#" class="dropdown-item " disabled>會員空間(請先登入)</a>
+                      <a></a>
                       {% endif %}
                       {% if request.COOKIES.account %}
                       <a href="{% url 'MemberCentre:logout' %}" class="dropdown-item ">帳戶登出</a>
                       {% else %}
+                      <a href="{% url 'MemberCentre:grade' %}" class="dropdown-item ">email驗證</a>
                       <a href="{% url 'MemberCentre:login' %}" class="dropdown-item ">帳戶登入</a>
                       {% endif %}
                     </div>

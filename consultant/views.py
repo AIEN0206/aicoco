@@ -7,7 +7,7 @@ from django.core.files.storage import FileSystemStorage
 # Create your views here.
 def index(request):  
     
-    title = "投顧老師"
+    # title = "投顧老師"
     #todo 讀取顧問資料傳給complete.html
     consultants = Consultant.objects.all()
     # print(list(consultants))
@@ -34,7 +34,7 @@ def create(request):
         #todo 新增完成後轉到http://localhost:8000/consultant
         return redirect("/consultant")
        
-    title = "新增" 
+    # title = "新增" 
     return render(request,'consultant/create.html',locals())
 
 def update(request,id):
@@ -62,7 +62,7 @@ def update(request,id):
         #修改完成後轉到http://localhost:8000/consultant
         return redirect('/consultant')
 
-    title = "修改"
+    # title = "修改"
 
     #根據顧問編號取得顧問資料傳給update.html
     consultant = Consultant.objects.get(id=int(id))
@@ -79,7 +79,7 @@ def delete(request,id):
 def complete(request, id):  
     #todo 讀取顧問資料傳給complete.html
     dates = Consultant.objects.get(id=int(id))
-    print(dates)
+    # print(dates)
     # print(consultant)
    
 

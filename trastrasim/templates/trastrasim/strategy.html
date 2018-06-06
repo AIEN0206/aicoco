@@ -2,20 +2,80 @@
 
 <div class="my-3 my-md-5">
     <div class="container">
-        <div class="page-header">
-            <h1 class="page-title">
-                Strategy
-            </h1>           
+        <div class="page-header">      
+       
         </div>
-        <h3>Your profit is: {{res}}$</h3>
-        <h3>Your profit is: {{netBCR}}%</h3>
-        <h3>Day in: {{buy}}</h3>
-        <h3>Day in: {{buyP}}</h3>
-        <h3>Day out: {{sell}}</h3>
-        <h3>Day out: {{sellP}}</h3>
-        <h3>Benefit: {{benefit}}$</h3>
-        
-          
+        <div class="row">
+        <hr>
+
+        <div class="col">
+        <h2>{{comp.CompanyName}}</h2>  
+        <h5>{{comp.CompanyID}}</h5>
+        <span><i class="fas fa-cubes"></i> Info.</span>
+        </div>
+
+        <div class="col"> 
+            <h5>${{netBC}}</h5>
+            <h7>獲利</h7>
+        </div>
+       
+        <div class="col"> 
+            <h5>{{netBCR}}%</h5>
+            <h7>獲利率</h7>
+        </div>
+       
+        <div class="col"> 
+            <h5>{{contl}}</h5>
+            <h7>交易次數</h7>
+        </div>
+
+        <div class="col"> 
+            <h5>{{netBcrPY}}</h5>
+            <h7>年化報酬率</h7>
+        </div>
+
+        <div class="col" style="text-align: right">
+                  <a class="btn btn-outline-dark" href="{% url 'trastrasim:companyinfo' %}" role="button">
+            <i class="fas fa-chart-pie"></i> 回策略中心</a> </a>  
+        </div>
+     
+        <hr>
+        </div>
+        {% include 'out.html' %}    
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>第幾筆交易</th>
+                    <th>購買日期</th>
+                    <th>購買價格</th>
+                    <th>出售日期</th>
+                    <th>出售價格</th>
+                    <th>淨利/每筆交易</th>
+                    <th>淨利(累積總額)</th>
+                    <th> </th>
+                    <th></th>
+                </tr>
+            </thead>
+    
+            <tbody>
+                {% for row in rows %}
+                <tr>
+                    <td>{{row.0}}</td>
+                    <td>{{row.1}}</td>
+                    <td>{{row.2}}</td>   
+                    <td>{{row.3}}</td>
+                    <td>{{row.4}}</td>
+                    <td>{{row.5}}</td>
+                    <td>{{row.6}}</td>
+                    <td><i class="fas fa-check-circle" style="color:greenyellow;"></i>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>  
     </div>
 </div>
-{% endblock %} {% block scripts %} {% endblock %}
+{% endblock %} {% block scripts %}
+<script src="https://cdn.pydata.org/bokeh/release/bokeh-0.12.16.min.js"></script>
+<script src="https://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.16.min.js"></script>
+<script src="https://cdn.pydata.org/bokeh/release/bokeh-tables-0.12.16.min.js"></script> {% endblock %}

@@ -14,11 +14,12 @@
                       {% elif request.COOKIES.account %}
                       <a href="{% url 'MemberCentre:space' request.COOKIES.account %}" class="dropdown-item ">會員空間</a>
                       {% else %}
-                      <a href="#" class="dropdown-item " disabled>會員空間(請先登入)</a>
+                      <a></a>
                       {% endif %}
                       {% if request.COOKIES.account %}
                       <a href="{% url 'MemberCentre:logout' %}" class="dropdown-item ">帳戶登出</a>
                       {% else %}
+                      <a href="{% url 'MemberCentre:grade' %}" class="dropdown-item ">email驗證</a>
                       <a href="{% url 'MemberCentre:login' %}" class="dropdown-item ">帳戶登入</a>
                       {% endif %}
                     </div>
@@ -31,10 +32,11 @@
                     </div>
                   </li>            
                   <li class="nav-item dropdown">
-                    <a href="javascript:void(0)" class="nav-link" data-toggle="dropdown"><i class="fe fe-check-square"></i> 交易策略</a>
+                    <a href="{% url 'trastrasim:companyinfo' %}" class="nav-link" data-toggle="dropdown"><i class="fe fe-check-square"></i> 交易策略</a>
                     <div class="dropdown-menu dropdown-menu-arrow">
-                      <a href="{% url 'trastrasim:index' %}" class="dropdown-item ">功能一</a>
-                      <a href="{% url 'trastrasim:companyinfo' %}" class="dropdown-item ">功能二</a>
+                      <a href="{% url 'trastrasim:companyinfo' %}" class="dropdown-item ">交易策略</a>
+                      <a href="{% url 'trastrasim:companyupdate' %}" class="dropdown-item ">更新公司列表(將CSV擋讀入DB)</a>
+                      <a href="{% url 'trastrasim:dailyupdate' %}" class="dropdown-item ">更新股價(注意:會連上網爬資料)</a>
                     </div>
                   </li>
                   <li class="nav-item dropdown">

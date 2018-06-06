@@ -1,0 +1,35 @@
+{% extends 'base.html'%} {% block content %}
+
+<body class="">
+    <div class="page">
+        <div class="page-single">
+            <div class="container">
+                <div class="row">
+                    <div class="col col-login mx-auto">
+                        <div class="text-center mb-6">
+                            <img src="./assets/brand/tabler.svg" class="h-6" alt="">
+                        </div>
+                        <form class="card" action="" method="post">
+                            {% csrf_token %}
+                            <div class="card-body p-6">
+                                <div class="card-title">補寄驗證碼</div>
+                                <div class="form-group">
+                                    <label class="form-label">請輸入email</label>
+                                    <input type="text" name="email" class="form-control" placeholder="請輸入電子信箱" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">請輸入帳號</label>
+                                    <input type="text" name="account" class="form-control" placeholder="請輸入帳號" required>
+                                </div>
+                                <div class="form-footer">
+                                    <button type="submit" class="btn btn-primary btn-block">寄送驗證碼</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}

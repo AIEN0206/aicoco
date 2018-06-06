@@ -20,10 +20,6 @@
                     </ul>
                 </div>
             </div>
-
-            
-
-
         </div>
 
         <div class="col-9">
@@ -52,6 +48,7 @@
                             <th>Expense Ratio</th>
                             <th>1Yr Return</th>
                             <th>3Yrs Return</th>
+                            <th>5Yrs Return</th>
                             <th>StdDev</th>
                             <th>Sharpe Ratio</th>
                             <th>info</th>
@@ -62,18 +59,19 @@
                         {% for usStock in usStocks %}
                         <tr>
                             <td>
-                                <input value="{{usStock.Ticker}}" name="usStock" type="radio" required="required">
+                                <input value="{{usStock.ticker}}" name="usStock" type="radio" required="required">
                             </td>
                             <td>{{usStock.Ticker}}</td>
                             <td>{{usStock.etfName}}</td>
                             <td>{{usStock.expenseRatio}}</td>
                             <td>{{usStock.yrReturn1}}</td>
                             <td>{{usStock.yrReturn3}}</td>
+                            <td>{{usStock.yrReturn5}}</td>
                             <td>{{usStock.StdDev}}</td>
                             <td>{{usStock.SharpeRatio}}</td>
                             <td>
                                 <div class="avatar">
-                                    <a href="/portfolio/detail/?Ticker={{usStock.Ticker}}">
+                                    <a href="/portfolio/detail/?ticker={{usStock.ticker}}">
                                         <i class="fas fa-chart-line"></i>
                                     </a>
                                 </div>
@@ -100,6 +98,7 @@
                             <th>Expense Ratio</th>
                             <th>1Yr Return</th>
                             <th>3Yrs Return</th>
+                            <th>5Yrs Return</th>
                             <th>StdDev</th>
                             <th>Sharpe Ratio</th>
                             <th>info</th>
@@ -110,18 +109,19 @@
                         {% for worldStock in worldStocks %}
                         <tr>
                             <td>
-                                <input value="{{worldStock.Ticker}}" name="worldStock" type="radio" required="required">
+                                <input value="{{worldStock.ticker}}" name="worldStock" type="radio" required="required">
                             </td>
                             <td>{{worldStock.Ticker}}</td>
                             <td>{{worldStock.etfName}}</td>
                             <td>{{worldStock.expenseRatio}}</td>
                             <td>{{worldStock.yrReturn1}}</td>
                             <td>{{worldStock.yrReturn3}}</td>
+                            <td>{{worldStock.yrReturn5}}</td>
                             <td>{{worldStock.StdDev}}</td>
                             <td>{{worldStock.SharpeRatio}}</td>
                             <td>
                                 <div class="avatar">
-                                    <a href="/portfolio/detail/?Ticker={{worldStock.Ticker}}">
+                                    <a href="/portfolio/detail/?ticker={{worldStock.ticker}}">
                                         <i class="fas fa-chart-line"></i>
                                     </a>
                                 </div>
@@ -151,6 +151,7 @@
                             <th>Expense Ratio</th>
                             <th>1Yr Return</th>
                             <th>3Yrs Return</th>
+                            <th>5Yrs Return</th>
                             <th>StdDev</th>
                             <th>Sharpe Ratio</th>
                             <th>info</th>
@@ -161,18 +162,19 @@
                         {% for emerStock in emerStocks %}
                         <tr>
                             <td>
-                                <input value="{{emerStock.Ticker}}" name="emerStock" type="radio" required="required">
+                                <input value="{{emerStock.ticker}}" name="emerStock" type="radio" required="required">
                             </td>
                             <td>{{emerStock.Ticker}}</td>
                             <td>{{emerStock.etfName}}</td>
                             <td>{{emerStock.expenseRatio}}</td>
                             <td>{{emerStock.yrReturn1}}</td>
                             <td>{{emerStock.yrReturn3}}</td>
+                            <td>{{emerStock.yrReturn5}}</td>
                             <td>{{emerStock.StdDev}}</td>
                             <td>{{emerStock.SharpeRatio}}</td>
                             <td>
                                 <div class="avatar">
-                                    <a href="/portfolio/detail/?Ticker={{emerStock.Ticker}}">
+                                    <a href="/portfolio/detail/?ticker={{emerStock.ticker}}">
                                         <i class="fas fa-chart-line"></i>
                                     </a>
                                 </div>
@@ -202,6 +204,7 @@
                             <th>Expense Ratio</th>
                             <th>1Yr Return</th>
                             <th>3Yrs Return</th>
+                            <th>5Yrs Return</th>
                             <th>StdDev</th>
                             <th>Sharpe Ratio</th>
                             <th>info</th>
@@ -212,18 +215,19 @@
                         {% for sectorStock in sectorStocks %}
                         <tr>
                             <td>
-                                <input value="{{sectorStock.Ticker}}" name="sectorStock" type="radio" required="required">
+                                <input value="{{sectorStock.ticker}}" name="sectorStock" type="radio" required="required">
                             </td>
                             <td>{{sectorStock.Ticker}}</td>
                             <td>{{sectorStock.etfName}}</td>
                             <td>{{sectorStock.expenseRatio}}</td>
                             <td>{{sectorStock.yrReturn1}}</td>
                             <td>{{sectorStock.yrReturn3}}</td>
+                            <td>{{sectorStock.yrReturn5}}</td>
                             <td>{{sectorStock.StdDev}}</td>
                             <td>{{sectorStock.SharpeRatio}}</td>
                             <td>
                                 <div class="avatar">
-                                    <a href="/portfolio/detail/?Ticker={{sectorStock.Ticker}}">
+                                    <a href="/portfolio/detail/?ticker={{sectorStock.ticker}}">
                                         <i class="fas fa-chart-line"></i>
                                     </a>
                                 </div>
@@ -252,6 +256,7 @@
                             <th>Expense Ratio</th>
                             <th>1Yr Return</th>
                             <th>3Yrs Return</th>
+                            <th>5Yrs Return</th>
                             <th>StdDev</th>
                             <th>Sharpe Ratio</th>
                             <th>info</th>
@@ -262,18 +267,19 @@
                         {% for usBond in usBonds %}
                         <tr>
                             <td>
-                                <input value="{{usBond.Ticker}}" name="usBond" type="radio" required="required">
+                                <input value="{{usBond.ticker}}" name="usBond" type="radio" required="required">
                             </td>
                             <td>{{usBond.Ticker}}</td>
                             <td>{{usBond.etfName}}</td>
                             <td>{{usBond.expenseRatio}}</td>
                             <td>{{usBond.yrReturn1}}</td>
                             <td>{{usBond.yrReturn3}}</td>
+                            <td>{{usBond.yrReturn5}}</td>
                             <td>{{usBond.StdDev}}</td>
                             <td>{{usBond.SharpeRatio}}</td>
                             <td>
                                 <div class="avatar">
-                                    <a href="/portfolio/detail/?Ticker={{usBond.Ticker}}">
+                                    <a href="/portfolio/detail/?ticker={{usBond.ticker}}">
                                         <i class="fas fa-chart-line"></i>
                                     </a>
                                 </div>
@@ -302,6 +308,7 @@
                             <th>Expense Ratio</th>
                             <th>1Yr Return</th>
                             <th>3Yrs Return</th>
+                            <th>5Yrs Return</th>
                             <th>StdDev</th>
                             <th>Sharpe Ratio</th>
                             <th>info</th>
@@ -312,18 +319,19 @@
                         {% for worldBond in worldBonds %}
                         <tr>
                             <td>
-                                <input value="{{worldBond.Ticker}}" name="worldBond" type="radio" required="required">
+                                <input value="{{worldBond.ticker}}" name="worldBond" type="radio" required="required">
                             </td>
                             <td>{{worldBond.Ticker}}</td>
                             <td>{{worldBond.etfName}}</td>
                             <td>{{worldBond.expenseRatio}}</td>
                             <td>{{worldBond.yrReturn1}}</td>
                             <td>{{worldBond.yrReturn3}}</td>
+                            <td>{{worldBond.yrReturn5}}</td>
                             <td>{{worldBond.StdDev}}</td>
                             <td>{{worldBond.SharpeRatio}}</td>
                             <td>
                                 <div class="avatar">
-                                    <a href="/portfolio/detail/?Ticker={{worldBond.Ticker}}">
+                                    <a href="/portfolio/detail/?ticker={{worldBond.ticker}}">
                                         <i class="fas fa-chart-line"></i>
                                     </a>
                                 </div>

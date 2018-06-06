@@ -1,6 +1,81 @@
 {% load static %}
 <!doctype html>
 <html lang="en" dir="ltr">
+<<<<<<< HEAD
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Content-Language" content="en" />
+  <meta name="msapplication-TileColor" content="#2d89ef">
+  <meta name="theme-color" content="#4188c9">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <link rel="icon" href="{% static 'tabler/favicon.ico' %}" type="image/x-icon" />
+  <link rel="shortcut icon" type="image/x-icon" href="{% static 'tabler/favicon.ico' %}" />
+  <!-- Generated: 2018-04-16 09:29:05 +0200 -->
+  <title>{{ pageTitle }}</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+    crossorigin="anonymous">
+  <script src="{% static 'tabler/assets/js/require.min.js' %}"></script>
+  <script>
+    requirejs.config({
+      baseUrl: "{% static 'tabler' %}"
+    });
+  </script>
+  <!-- Dashboard Core -->
+  <link href="{% static 'tabler/assets/css/dashboard.css' %}" rel="stylesheet" />
+  <script src="{% static 'tabler/assets/js/dashboard.js' %}"></script>
+  <!-- c3.js Charts Plugin -->
+  <link href="{% static 'tabler/assets/plugins/charts-c3/plugin.css' %}" rel="stylesheet" />
+  <script src="{% static 'tabler/assets/plugins/charts-c3/plugin.js' %}"></script>
+  <!-- Google Maps Plugin -->
+  <link href="{% static 'tabler/assets/plugins/maps-google/plugin.css' %}" rel="stylesheet" />
+  <script src="{% static 'tabler/assets/plugins/maps-google/plugin.js' %}"></script>
+  <!-- Input Mask Plugin -->
+  <script src="{% static 'tabler/assets/plugins/input-mask/plugin.js' %}"></script>
+  <style>
+    @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+    * {
+      font-family: "Noto Sans TC", sans-serif;
+    }
+  </style>
+  {% block scripts %} {% endblock %}
+</head>
+<body class="">
+  <div class="page">
+    <div class="page-main">
+      <div class="header py-4">
+        <div class="container">
+          <div class="d-flex">
+            <a class="header-brand" href="{% url 'root:index' %}">
+              <!--img src="{% static 'tabler/demo/brand/tabler.svg' %}" class="header-brand-img" alt="tabler logo"-->
+              <img src="{% static 'images/89e00c72-8d35-4b83-b650-c9e873c0ac41.svg' %}" class="header-brand-img" alt="tabler logo">
+              <span class="mr-3 align-self-center">AICOCO</span>
+            </a>
+            <div class="d-flex order-lg-2 ml-auto">
+              <div class="nav-item d-none d-md-flex">
+                <!--a href="https://github.com/tabler/tabler" class="btn btn-sm btn-outline-primary" target="_blank">Source code</a-->
+              </div>
+              <div class="dropdown d-none d-md-flex">
+                <a class="nav-link icon" data-toggle="dropdown">
+                  <i class="fe fe-bell"></i>
+                  <span class="nav-unread"></span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                  <a href="#" class="dropdown-item d-flex">
+                    <span class="avatar mr-3 align-self-center" style="background-image: url({% static 'tabler/demo/faces/male/41.jpg' %})"></span>
+                    <div>
+                      <strong>何丞唐</strong> 6月超級大飆股
+                      <div class="small text-muted">十分鐘前</div>
+                    </div>
+=======
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -63,165 +138,184 @@
                   <a class="nav-link icon" data-toggle="dropdown">
                     <i class="fe fe-bell"></i>
                     <span class="nav-unread"></span>
+>>>>>>> c974c58175c282625cd6fca93771878ad1fabae5
                   </a>
-                  <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                    <a href="#" class="dropdown-item d-flex">
-                      <span class="avatar mr-3 align-self-center" style="background-image: url({% static 'tabler/demo/faces/male/41.jpg' %})"></span>
-                      <div>
-                        <strong>何丞唐</strong> 6月超級大飆股
-                        <div class="small text-muted">十分鐘前</div>
-                      </div>
-                    </a>
-                    <a href="#" class="dropdown-item d-flex">
-                      <span class="avatar mr-3 align-self-center" style="background-image: url({% static 'tabler/demo/faces/female/1.jpg' %})"></span>
-                      <div>
-                        <strong>林幸蓉</strong> 滿漢全席飆股秘笈
-                        <div class="small text-muted">一小時前</div>
-                      </div>
-                    </a>
-                    <a href="#" class="dropdown-item d-flex">
-                      <span class="avatar mr-3 align-self-center" style="background-image: url({% static 'tabler/demo/faces/female/18.jpg' %})"></span>
-                      <div>
-                        <strong>何丞唐</strong> 500%獲利心法寶典 
-                        <div class="small text-muted">昨天</div>
-                      </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item text-center text-muted-dark">設定為已讀</a>
-                  </div>
+                  <a href="#" class="dropdown-item d-flex">
+                    <span class="avatar mr-3 align-self-center" style="background-image: url({% static 'tabler/demo/faces/female/1.jpg' %})"></span>
+                    <div>
+                      <strong>林幸蓉</strong> 滿漢全席飆股秘笈
+                      <div class="small text-muted">一小時前</div>
+                    </div>
+                  </a>
+                  <a href="#" class="dropdown-item d-flex">
+                    <span class="avatar mr-3 align-self-center" style="background-image: url({% static 'tabler/demo/faces/female/18.jpg' %})"></span>
+                    <div>
+                      <strong>何丞唐</strong> 500%獲利心法寶典
+                      <div class="small text-muted">昨天</div>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a href="#" class="dropdown-item text-center text-muted-dark">設定為已讀</a>
                 </div>
-                <div class="dropdown">
-                  <a href="#" class="nav-link pr-0 leading-none" data-toggle="dropdown">
-                    <span class="avatar" style="background-image: url({% static 'tabler/demo/faces/female/25.jpg' %})"></span>
-                    <span class="ml-2 d-none d-lg-block">
-                      <span class="text-default">愛錢錢</span>
-                      {% if request.COOKIES.account  == 'aicoco'%}
-                      <small class="text-muted d-block mt-1">管理員</small>
-                      {% elif request.COOKIES.account %}
-                      <small class="text-muted d-block mt-1">{{request.COOKIES.account}}</small>
-                      {% else %}
-                      <small class="text-muted d-block mt-1">遊客</small>
-                      {% endif %}
-                    </span>
-                  </a>
-                  <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                    <a class="dropdown-item" href="#">
-                      <i class="dropdown-icon fe fe-user"></i> 帳號
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <i class="dropdown-icon fe fe-settings"></i> 設定
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <span class="float-right"><span class="badge badge-primary">6</span></span>
-                      <i class="dropdown-icon fe fe-mail"></i> 郵件
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <i class="dropdown-icon fe fe-send"></i> 訊息
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                      <i class="dropdown-icon fe fe-help-circle"></i> 幫助
-                    </a>
-                    <!--如果取得用戶端cookie有值(代表登入成功)-->
-                    {% if request.COOKIES.account %}
-                    <!--顯示登出按鈕-->
-                    <a class="dropdown-item" href={% url 'MemberCentre:logout' %}>
-                        <i class="dropdown-icon fe fe-log-out"></i> 登出</a>
-                    <!-- 如果沒有取得用戶端cookie有值(代表登入不成功) -->
+              </div>
+              <div class="dropdown">
+                <a href="#" class="nav-link pr-0 leading-none" data-toggle="dropdown">
+                  <span class="avatar" style="background-image: url({% static 'tabler/demo/faces/female/25.jpg' %})"></span>
+                  <span class="ml-2 d-none d-lg-block">
+                    {% if request.COOKIES.account == 'aicoco'%}
+                    <span class="text-default">AICOCO</span>
+                    <small class="text-muted d-block mt-1">管理員</small>
+                    {% elif request.COOKIES.account %}
+                    <span class="text-default">{{request.COOKIES.account}}</span>
+                    <small class="text-muted d-block mt-1">一般會員</small>
                     {% else %}
-                    <!--顯示登入按鈕-->
-                    <a class="dropdown-item" href={% url 'MemberCentre:login' %}>
-                        <i class="dropdown-icon fe fe-log-out"></i> 登入</a>
+                    <span class="text-default">GUEST</span>
+                    <small class="text-muted d-block mt-1">遊客</small>
                     {% endif %}
-                  </div>
-                </div>
-              </div>
-              <a href="#" class="header-toggler d-lg-none ml-3 ml-lg-0" data-toggle="collapse" data-target="#headerMenuCollapse">
-                <span class="header-toggler-icon"></span>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="header collapse d-lg-flex p-0" id="headerMenuCollapse">
-          <div class="container">
-            <div class="row align-items-center">
-              <div class="col-lg-3 ml-auto">
-                <form class="input-icon my-3 my-lg-0">
-                  <input type="search" class="form-control header-search" placeholder="搜尋&hellip;" tabindex="1">
-                  <div class="input-icon-addon">
-                    <i class="fe fe-search"></i>
-                  </div>
-                </form>
-              </div>
-              {% include 'nav.html' %}
-            </div>
-          </div>
-        </div>
-        {% block content %}
-        {% endblock %}
-      </div>
-      <div class="footer">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8">
-              <div class="row">
-                <div class="col-6 col-md-3">
-                  <ul class="list-unstyled mb-0">
-                    <li><a href="#">服務條款</a></li>
-                    <li><a href="#">內容授權</a></li>
-                  </ul>
-                </div>
-                <div class="col-6 col-md-3">
-                  <ul class="list-unstyled mb-0">
-                    <li><a href="#">隱私政策</a></li>
-                    <li><a href="#">合作方案</a></li>
-                  </ul>
-                </div>
-                <div class="col-6 col-md-3">
-                  <ul class="list-unstyled mb-0">
-                    <li><a href="#">合作夥伴</a></li>
-                    <li><a href="#">人力招募</a></li>
-                  </ul>
-                </div>
-                <div class="col-6 col-md-3">
-                  <ul class="list-unstyled mb-0">
-                    <li><a href="#">聯絡我們</a></li>
-                    <li><a href="#">顧問資訊</a></li>
-                  </ul>
+                  </span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                  <a class="dropdown-item" href="#">
+                    <i class="dropdown-icon fe fe-user"></i> 帳號
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <i class="dropdown-icon fe fe-settings"></i> 設定
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <span class="float-right">
+                      <span class="badge badge-primary">6</span>
+                    </span>
+                    <i class="dropdown-icon fe fe-mail"></i> 郵件
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <i class="dropdown-icon fe fe-send"></i> 訊息
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">
+                    <i class="dropdown-icon fe fe-help-circle"></i> 幫助
+                  </a>
+                  <!--如果取得用戶端cookie有值(代表登入成功)-->
+                  {% if request.COOKIES.account %}
+                  <!--顯示登出按鈕-->
+                  <a class="dropdown-item" href={% url 'MemberCentre:logout' %}>
+                    <i class="dropdown-icon fe fe-log-out"></i> 登出</a>
+                  <!-- 如果沒有取得用戶端cookie有值(代表登入不成功) -->
+                  {% else %}
+                  <!--顯示登入按鈕-->
+                  <a class="dropdown-item" href={% url 'MemberCentre:grade' %}>
+                    <i class="dropdown-icon fe fe-log-out"></i> email驗證</a>
+                  <a class="dropdown-item" href={% url 'MemberCentre:login' %}>
+                    <i class="dropdown-icon fe fe-log-out"></i> 登入</a>
+                  {% endif %}
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 mt-4 mt-lg-0">
-              AICOCO投資顧問股份有限公司<br />
-              106台北市大安區復興南路一段390號2樓
-            </div>
+            <a href="#" class="header-toggler d-lg-none ml-3 ml-lg-0" data-toggle="collapse" data-target="#headerMenuCollapse">
+              <span class="header-toggler-icon"></span>
+            </a>
           </div>
         </div>
       </div>
-      <footer class="footer">
+      <div class="header collapse d-lg-flex p-0" id="headerMenuCollapse">
         <div class="container">
-          <div class="row align-items-center flex-row-reverse">
-            <div class="col-auto ml-lg-auto">
-              <div class="row align-items-center">
-                <div class="col-auto">
-                  <ul class="list-inline list-inline-dots mb-0">
-                    <li class="list-inline-item"><a href="{% static 'tabler/docs/index.html' %}">Documentation</a></li>
-                    <li class="list-inline-item"><a href="{% static 'tabler/faq.html' %}">FAQ</a></li>
-                  </ul>
+          <div class="row align-items-center">
+            <div class="col-lg-3 ml-auto">
+              <form class="input-icon my-3 my-lg-0">
+                <input type="search" class="form-control header-search" placeholder="搜尋&hellip;" tabindex="1">
+                <div class="input-icon-addon">
+                  <i class="fe fe-search"></i>
                 </div>
-                <div class="col-auto">
-                  <a href="https://github.com/tabler/tabler" class="btn btn-outline-primary btn-sm">Source code</a>
-                </div>
-              </div>
+              </form>
             </div>
-            <div class="col-12 col-lg-auto mt-3 mt-lg-0 text-center">
-              Copyright © 2018 <a href=".">Tabler</a>. Theme by <a href="https://codecalm.net" target="_blank">codecalm.net</a> All rights reserved.
-            </div>
+            {% include 'nav.html' %}
           </div>
         </div>
-      </footer>
+      </div>
+      {% block content %} {% endblock %}
     </div>
-    {% block scripts %}
-    {% endblock %}
-  </body>
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="row">
+              <div class="col-6 col-md-3">
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <a href="#">服務條款</a>
+                  </li>
+                  <li>
+                    <a href="#">內容授權</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-6 col-md-3">
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <a href="#">隱私政策</a>
+                  </li>
+                  <li>
+                    <a href="#">合作方案</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-6 col-md-3">
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <a href="#">合作夥伴</a>
+                  </li>
+                  <li>
+                    <a href="#">人力招募</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-6 col-md-3">
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <a href="#">聯絡我們</a>
+                  </li>
+                  <li>
+                    <a href="#">顧問資訊</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 mt-4 mt-lg-0">
+            AICOCO投資顧問股份有限公司
+            <br /> 106台北市大安區復興南路一段390號2樓
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="container">
+        <div class="row align-items-center flex-row-reverse">
+          <div class="col-auto ml-lg-auto">
+            <div class="row align-items-center">
+              <div class="col-auto">
+                <ul class="list-inline list-inline-dots mb-0">
+                  <li class="list-inline-item">
+                    <a href="{% static 'tabler/docs/index.html' %}">Documentation</a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="{% static 'tabler/faq.html' %}">FAQ</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-auto">
+                <a href="https://github.com/tabler/tabler" class="btn btn-outline-primary btn-sm">Source code</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-auto mt-3 mt-lg-0 text-center">
+            Copyright © 2018
+            <a href=".">Tabler</a>. Theme by
+            <a href="https://codecalm.net" target="_blank">codecalm.net</a> All rights reserved.
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+
 </html>

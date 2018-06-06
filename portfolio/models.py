@@ -1,15 +1,12 @@
 from django.db import models
 
-#----------------portfolio models -----------------
-
 class portfolio(models.Model):
-    # memberId = models.ForeignKey('membercentre', on_delete=models.CASCADE)
     objective = models.CharField(max_length=20)
     duration = models.IntegerField()
     targetFV = models.IntegerField()
     risk = models.CharField(max_length=20)
     startDeposit = models.IntegerField()
-    monthlyDeposit = models.IntegerField()
+    monthlyDeposit = models.IntegerField(blank=True, null=True)
     usStock = models.CharField(max_length=10)
     worldStock = models.CharField(max_length=10)
     emerStock = models.CharField(max_length=10)
@@ -22,15 +19,9 @@ class portfolio(models.Model):
 
 
 class etfs(models.Model):
-    Ticker = models.CharField(max_length=8)
+    ticker = models.CharField(primary_key=True, max_length=8)
     etfName = models.CharField(max_length=200)
-    category_choices = (('usStock','usStock'),
-                ('worldStock','worldStock'),
-                ('emerStock','emerStock'),
-                ('sectorStock','sectorStock'),
-                ('usBond','usBond'),
-                ('worldBond','worldBond'))
-    category = models.CharField(max_length=20,choices=category_choices)
+    category = models.CharField(max_length=20)
     expenseRatio = models.DecimalField(max_digits=6, decimal_places=2)
     YTDreturn =  models.DecimalField(max_digits=6, decimal_places=2)
     yrReturn1 = models.DecimalField(max_digits=6, decimal_places=2)
@@ -42,17 +33,15 @@ class etfs(models.Model):
         db_table = "etfs"
 
 class etfprices(models.Model):
-    ticker = models.ForeignKey('Etfs', models.DO_NOTHING, db_column='ticker', primary_key=True)
+    ticker = models.CharField(primary_key=True, max_length=8)
     date = models.DateField()
-    opend = models.DecimalField(max_digits=6, decimal_places=2)
-    high = models.DecimalField(max_digits=6, decimal_places=2)
-    low = models.DecimalField(max_digits=6, decimal_places=2)
-    close = models.DecimalField(max_digits=6, decimal_places=2)
-    volume = models.IntegerField()
+    opend = models.DecimalField(max_digits=10, decimal_places=2)
+    high = models.DecimalField(max_digits=10, decimal_places=2)
+    low = models.DecimalField(max_digits=10, decimal_places=2)
+    close = models.DecimalField(max_digits=10, decimal_places=2)
+    volume = models.BigIntegerField()
 
     class Meta:
         managed = False
         db_table = 'etfprices'
         unique_together = (('ticker', 'date'),)
-
-

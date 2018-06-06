@@ -1,12 +1,12 @@
 {% extends 'base.html'%} {% block content %}
 <div class="container" style="margin:20px auto">
-    <div class="alert alert-primary" style="text-align: center; font-size:30px; font-weight: 600">AI最佳投資組合 - Result</div>
+    <div class="alert alert-primary" style="text-align: center; font-size:30px; font-weight: 600">{{objective}}投資組合 - AI策略</div>
     <div class="row">
         <div class="col-3">
 
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">{{objective}}投資組合</h3>
+                    <h4>{{objective}}投資組合分配</h4>
                 </div>
                 <div class="card-body">
                     <div id="chart-pie">
@@ -20,6 +20,38 @@
                     </ul>
                 </div>
             </div>
+
+            <table class="table">
+                <thead>
+                    <th>Other Portfolio</th>
+                    <th></th>
+                </thead>
+                {% for row in portfolios %} {% if pid != row.id %}
+                <tr>
+                    <td>
+                        <h5>{{row.objective}}投資組合</h5>
+                        <ul>
+                            <li>起始：${{row.startDeposit}}</li>
+                            <li>投資年限：{{row.duration}}年</li>
+                            <li>目標：${{row.targetFV}}</li>
+                            <li>風險承受：{{row.risk}}</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <a href="/portfolio/result/?id={{row.id}}">
+                            <i class="far fa-folder-open"></i>
+                        </a>
+                        <a href="/portfolio/delete/?del_id={{row.id}}&ret_id={{pid}}">
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
+                    </td>
+                </tr>
+                {% endif %} {% endfor %}
+                <td>
+                    <a href="/portfolio/" class="btn btn-primary">新增投資組合</a>
+                </td>
+            </table>
+
         </div>
 
         <div class="col-9">
@@ -31,6 +63,7 @@
                         <th>Expense Ratio</th>
                         <th>1Yr Return</th>
                         <th>3Yrs Return</th>
+                        <th>5Yrs Return</th>
                         <th>StdDev</th>
                         <th>Sharpe Ratio</th>
                         <th>info</th>
@@ -40,16 +73,17 @@
 
                     {% for myetf in etfsInPort %}
                     <tr>
-                        <td>{{myetf.Ticker}}</td>
+                        <td>{{myetf.ticker}}</td>
                         <td>{{myetf.etfName}}</td>
                         <td>{{myetf.expenseRatio}}</td>
                         <td>{{myetf.yrReturn1}}</td>
                         <td>{{myetf.yrReturn3}}</td>
+                        <td>{{myetf.yrReturn5}}</td>
                         <td>{{myetf.StdDev}}</td>
                         <td>{{myetf.SharpeRatio}}</td>
                         <td>
                             <div class="avatar">
-                                <a href="/portfolio/detail/?Ticker={{myetf.Ticker}}">
+                                <a href="/portfolio/detail/?ticker={{myetf.ticker}}">
                                     <i class="fas fa-chart-line"></i>
                                 </a>
                             </div>
@@ -59,21 +93,19 @@
 
                 </tbody>
             </table>
+
             <hr>
 
 
             <div class="alert alert-secondary" role="alert" style="font-size: 26px; font-weight:600; text-align: center;">
-                <!-- <span class="stamp stamp-md bg-blue mr-3">
-                                <i class="fe fe-dollar-sign"></i>
-                              </span> -->
-                投資組合3年回測績效 -
-                <a href="#" class="btn btn-success" style="font-size: 24px; font-weight:600;">+37%</a>
+                投資組合5年回測績效
+                <a href="#" class="btn btn-success" style="font-size: 24px; font-weight:600;">{{yrReturn5}}%</a>，年化獲利{{annualRet}}%
             </div>
 
             {% include 'portfolio/backtest.html' %}
-            <div style="font-size: 26px; font-weight:600; text-align: centero;">
-                投資20年後要達成存款目標，你需要每個月投資
-                <a href="#" class="btn btn-success" style="font-size: 24px; font-weight:600;">$20000</a>
+            <div class="alert alert-secondary" role="alert" style="font-size: 26px; font-weight:600; text-align: center;">
+                投資{{duration}}年後達到${{targetFV}}存款，你需每月投資
+                <a href="#" class="btn btn-success" style="font-size: 24px; font-weight:600;">${{mPayment}}</a>
             </div>
 
             {% include 'portfolio/fvtest.html' %}

@@ -133,3 +133,6 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+#google驗證機器人api的key
+GOOGLE_RECAPTCHA_SECRET_KEY = '6Lc7UF0UAAAAAC89HHbp0LyHXXD-9irozO8AXfBi'

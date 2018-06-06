@@ -53,9 +53,11 @@
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="form-group row">
-
-                <label for="StockChoice" class="col-sm-2 col-form-label text-right">Strategy Choice</label>
-                <div class="col-sm-8">
+                <div class="row">
+                    <div class="col">
+                <label for="StockChoice" class="col col-form-label text-right">Strategy Choice</label>
+                    </div>
+                <div class="col">
                     <select class="form-control" id="StockChoice" name="StockChoice">
                         <option value="0">Select</option>
                         <option value="1">BarUpDown</option>
@@ -64,6 +66,7 @@
                     </select>
                 </div>
                 <button type="submit" class="btn btn-outline-primary col-sm-2">Search</button>
+                </div>
             </div>
 
         </form>

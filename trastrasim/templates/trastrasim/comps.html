@@ -3,17 +3,30 @@
 <div class="my-3 my-md-5">
     <div class="container">
         <div class="page-header">
-            <h1 class="page-title">
-                Companies Infomations
-            </h1>   
+            <div class="row">
+                <div class="col">
+                    <h1 class="page-title">
+                        Companies Infomations
+                    </h1>
+                </div>
+                <div class="col">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col">
+
+                                <label for="tickerN" class="sr-only">Ticker Number</label>
+                                <input type="text" class="form-control" id="tickerNumber" placeholder="搜尋代碼" name="tickerNumber">
+                            </div>
+
+                            <div class="col">
+
+                                <button type="submit" class="btn btn-primary mb-2">Search</button>
+                            </div>
+                        </div>
+                </div>
+                </form>
             </div>
-            <div style="text-align: right">
-            <form class="form-inline">
-                <label for="ticker" class="sr-only">Ticker Number</label>
-                <input type="text" class="form-control" id="ticker" placeholder="Enter here">
-              <button type="submit" class="btn btn-primary mb-2">Search</button>
-            </form>                
-         
         </div>
         <table class="table">
             <thead>
@@ -27,7 +40,7 @@
                     <th></th>
                 </tr>
             </thead>
-    
+
             <tbody>
                 {% for row in rows %}
                 <tr>
@@ -37,7 +50,11 @@
                     <td>{{row.1.TurnOverinvalue}}</td>
                     <td>{{row.1.ClosingPrice}}</td>
                     <td>{{row.1.NumberofTransactions}}</td>
-                    <td><a class="btn btn-light" href="{% url 'trastrasim:strategychoice' row.0.CompanyID %}" role="button"><i class="fas fa-arrow-circle-right" style="color:maroon;"></i></a></td>
+                    <td>
+                        <a class="btn btn-light" href="{% url 'trastrasim:strategychoice' row.0.CompanyID %}" role="button">
+                            <i class="fas fa-arrow-circle-right" style="color:maroon;"></i>
+                        </a>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>

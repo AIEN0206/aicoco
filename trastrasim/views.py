@@ -21,8 +21,15 @@ def company_info(request):
     comps= COMP.objects.all()      
     datas= STPR.objects.all()    
     # for comp in comps:
-    #     datas= STPR.objects.filter(CompanyID= comp.CompanyID)            
-    rows= zip([comp for comp in comps], [data for data in datas.filter(Date__icontains= '107/06/01', ClosingPrice__regex= r'[[:digit:]]+')])
+    #     datas= STPR.objects.filter(CompanyID= comp.CompanyID)     
+    if request.method == 'POST':
+        compid= int(request.POST['tickerNumber']    )
+        comps= COMP.objects.get(CompanyID=compid)  
+        datas= STPR.objects.get(CompanyID=compid, Date__icontains= '107/06/01')           
+        rows= zip([comps,], [datas,])
+        return render(request, 'trastrasim/comps.html', locals())    
+           
+    rows= zip([comp for comp in comps], [data for data in datas.filter(Date__icontains= '107/06/01')])
 
     return render(request, 'trastrasim/comps.html', locals())    
 
@@ -35,7 +42,7 @@ def strategy_choice(request,id):
     if request.method =="POST":
         choice= request.POST['StockChoice']
         net= strategy(choice,id)
-        res= net[0]
+        netBC= round(net[0],2)
         buy= net[1]
         buyP= net[2]
         costC= net[3]
@@ -44,10 +51,12 @@ def strategy_choice(request,id):
         benefit= net[6]
         benesum= net[7]
         cont= net[8]
+        contl= cont[-1]
         rows= zip(cont,buy,buyP,sell,sellP,benefit,benesum)
         # scripts= net[7]
         # div= net[8]
-        netBCR= round(res/costC*100,2)
+        netBCR= round(netBC/costC*100,2)
+        netBcrPY= round(((1+netBCR/100)**(1/30)-1)*12*100,2)
         comp= COMP.objects.get(CompanyID=id)        
         return render(request,'trastrasim/strategy.html',locals())
         

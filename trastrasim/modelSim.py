@@ -38,26 +38,34 @@ class Simulator():
         df["high"] = self.high
         df["low"] = self.low
         # df["ma20"] = self.ma20
+        # df["date20"] = df["date"].rolling(20)         
         df["ma20"] = df["close"].rolling(20).mean()
 
         inc = df.close > df.open
         dec = df.open > df.close
-        bth = df.close != df.open
+        bth = 1
         w = 12*60*60*1000 # half day in ms
 
         source = ColumnDataSource(data={
-            'date':  df["date"][inc],
-            'dated':  df["date"][dec],
-            'open': df["open"][inc],
-            'opend': df["open"][dec],
-            'close': df["close"][inc],
-            'closed': df["close"][dec],
-            'high': df["high"][inc],
-            'highd': df["high"][dec],
-            'low': df["low"][inc],
-            'lowd': df["low"][dec],
-            'ma20': df["ma20"][inc],
+            'date':    df.date,    
+            # 'date20':  df["date20"],
+            'datei':   df["date"][inc],
+            'dated':   df["date"][dec],
+            'open':    df["open"][inc],
+            'opend':   df["open"][dec],
+            'close':   df["close"][inc],
+            'closed':  df["close"][dec],
+            'high':    df["high"][inc],
+            'highd':   df["high"][dec],
+            'low':     df["low"][inc],
+            'lowd':    df["low"][dec],
+            # 'ma20': df["ma20"][inc],
+            'ma20': df.ma20,            
             'ma20d': df["ma20"][dec],
+        })
+        source2= ColumnDataSource(data={
+            'date':  df.date,     
+            'ma20': df.ma20,
         })
 
         TOOLS = "pan,wheel_zoom,box_zoom,reset,save"
@@ -67,9 +75,10 @@ class Simulator():
         p.grid.grid_line_alpha=0.3
 
         p.segment(df.date, df.high, df.date, df.low, color="black")
+        # p.line('date', 'ma20', source=source2, color= 'navy', line_width= 1, legend= '20日平均線')
         p.line('dated', 'ma20d', source=source, color= 'navy', line_width= 1, legend= '20日平均線')
         p.legend.location = "top_left"
-        p.vbar('date', w,'open', 'close', fill_color="#D5E1DD", line_color="black", source=source)
+        p.vbar('datei', w,'open', 'close', fill_color="#D5E1DD", line_color="black", source=source)
         p.vbar('dated', w, 'opend', 'closed', fill_color="#F2583E", line_color="black", source=source)
 
         # p.vbar(df.date[inc], w, df.open[inc], df.close[inc], fill_color="#D5E1DD", line_color="black")
@@ -78,6 +87,7 @@ class Simulator():
         p.add_tools(HoverTool(
             tooltips=[
                 ( 'date',   '@date{%F}'            ),
+                ( 'ma20',  '$@ma20{%0.2f}' ), # use @{ } for field names with spaces
                 ( 'open',  '$@open{%0.2f}' ), # use @{ } for field names with spaces
                 ( 'close',  '$@close{%0.2f}' ), # use @{ } for field names with spaces
                 ( 'high',  '$@high{%0.2f}' ), # use @{ } for field names with spaces
@@ -86,6 +96,7 @@ class Simulator():
 
             formatters={
                 'date'      : 'datetime', # use 'datetime' formatter for 'date' field
+                'ma20' : 'printf',   # use 'printf' formatter for 'adj close' field
                 'open' : 'printf',   # use 'printf' formatter for 'adj close' field
                 'close' : 'printf',   # use 'printf' formatter for 'adj close' field
                 'high' : 'printf',   # use 'printf' formatter for 'adj close' field
@@ -116,13 +127,14 @@ class Simulator():
         benefitO= 0
         own= 0
         netBC= 0
+        tradt= 0
         for data in self.datas:            
             while index < len(self.datas) and index >= 1:
 
                 if self.close[index] > self.open[index] and self.open[index] > self.close[index-1]:                    
                     if not own:                    
                         buy.append(self.date[index])
-                        buyP.append(self.close[index])
+                        buyP.append(self.open[index])
                         costC+= self.close[index]
                         costO+= self.open[index]
                         own= not own
@@ -133,13 +145,14 @@ class Simulator():
                         sellP.append(self.open[index])    
                         benefitC+= self.close[index]
                         benefitO+= self.open[index]                 
-                        netBC+= round(benefitC-costC,2)
-                        netBCP= netBC/costC
+                        netBC= round(benefitO-costO,2)
+                        netBCP= netBC/costO
                         own= not own
-                        ben.append(round(benefitC-costC,2))
+                        ben.append(round(sellP[-1]-buyP[-1],2))
                         benS.append(round(sum(ben),2))
-                
-                cont.append(index)        
+                        tradt+= 1
+                        cont.append(tradt)               
+                                     
                 break
             index+= 1
                 
@@ -148,7 +161,7 @@ class Simulator():
 
         source = ColumnDataSource(data={
             'date': pd.to_datetime(sell),
-            'profit': ben,
+            'profit': benS,
         })
 
         TOOLS = "pan,wheel_zoom,box_zoom,reset,save"
@@ -187,6 +200,7 @@ class Simulator():
         sell= []
         sellP= []
         ben= []
+        benS= []
         index= 0
         costC= 0
         costO= 0
@@ -209,9 +223,10 @@ class Simulator():
                     sellP.append(self.close[index])    
                     benefitC+= self.close[index]*own
                     benefitO+= self.open[index]*own
-                    netBC+= round(benefitC-costC,2)      
+                    netBC= round(benefitC-costC,2)      
                     netBCP= netBC/costC                                  
                     own= 0
+                    ben.append(round(sellP[-1]-buyP[-1],2))                    
                     benS.append(round(sum(ben),2))                    
                 
                 else:
@@ -227,10 +242,32 @@ class Simulator():
         netBO= benefitO-costO
         netBOP= netBO/costO
 
+        source = ColumnDataSource(data={
+            'date': pd.to_datetime(sell),
+            'profit': benS,
+        })
+
         TOOLS = "pan,wheel_zoom,box_zoom,reset,save"
-        p= figure(x_axis_type="datetime", tools=TOOLS, plot_width=1000, plot_height=300, title = "{} Candlestick".format('COMP'))
-        p.circle(self.datetime(sell), ben, fill_color="white", size=8)
-        p.line(self.datetime(sell), ben, line_width= 2, color='navy', alpha=0.5)
+        hover= HoverTool(
+            tooltips=[
+                ( 'date',   '@date{%F}'            ),
+                ( 'profit',  '$@profit{%0.2f}' ), # use @{ } for field names with spaces
+            ],
+
+            formatters={
+                'date'      : 'datetime', # use 'datetime' formatter for 'date' field
+                'profit' : 'printf',   # use 'printf' formatter for 'adj close' field
+                                        # use default 'numeral' formatter for other fields
+            },
+        # display a tooltip whenever the cursor is vertically in line with a glyph
+        mode='vline')
+        p= figure(x_axis_type="datetime", tools=[hover], plot_width=1000, plot_height=300, title = "{} Candlestick".format('COMP'))
+        p.xaxis.major_label_orientation = pi/4
+        p.grid.grid_line_alpha=0.3
+        # p.segment(sell, color="black")
+        p.circle('date', 'profit', fill_color="white", size=8, source=source)
+        p.line('date', 'profit', line_width= 2, color='navy', alpha=0.5, source=source)
+
         # line(x,y, color="#0000FF", tools="pan,wheel_zoom,box_zoom,reset",name="line_example", plot_width=800, plot_height=300)
         html = file_html(p, CDN, "my plot")
         with open(r'trastrasim\templates\out.html','w') as f:

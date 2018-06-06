@@ -10,13 +10,13 @@
                         <h3 class="card-title">{{dates.姓名}} 顧問</h3>
                     </div>
                     <div class="alert alert-primary" role="alert">
-                        經歷：{{dates.經歷}}
+                        <h4>經歷：{{dates.經歷}}</h4>
                     </div>
                     <div class="alert alert-warning" role="alert">
-                        學歷：{{dates.學歷}}
+                        <h4>學歷：{{dates.學歷}}</h4>
                     </div>
                     <div class="alert alert-danger" role="alert">
-                        證照：{{dates.證照}}
+                        <h4>證照：{{dates.證照}}</h4>
                     </div>
                     <div class="card-footer">
                         <a href="{{dates.url}}" title="推薦影音">推薦影音I</a>
@@ -25,12 +25,18 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-xl3">
-                <h2>操盤特色</h2><div class="alert alert-danger">{{dates.操盤特色}}</div>
+            <div class="col-md-4 col-xl6">                                
+                <img src="/static/images/1.jpg"><h2 style="text-align: center">操盤特色</h2>
+                <div class="alert alert-danger">{{dates.操盤特色}}</div>
+                <div><em style="font-weight: bolder">聯絡方式</em></div><img src="/static/images/line.jpg">
             </div>
-            <!-- <div class="col-md-6 col-xl3">
-                關於
-            </div> -->
+            <div class="col-md-2 col-xl6">
+                <div style="border: 3px solid royalblue">
+                    <h3 style="text-align: center">廣告</h3>
+                    <img src="/static/images/1.gif" alt="廣告">
+                    <img src="/static/images/1.gif" alt="廣告">
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -58,6 +58,7 @@ def update(request,id):
         consultant.證照 = 證照
         consultant.image = image
         consultant.save()
+        print(consultant.經歷)
         
         #修改完成後轉到http://localhost:8000/consultant
         return redirect('/consultant')

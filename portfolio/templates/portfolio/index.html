@@ -1,12 +1,49 @@
 {% extends 'base.html'%} {% block content %}
 <div class="container" style="margin:20px auto; font-size: 30px; font-weight: 600">
-        <div class="alert alert-primary" style="text-align: center; font-size:30px; font-weight: 600">STEP1 : 設定投資目的</div>
-        <div class="row" style="text-align: center">
-                <div class="col">
-                        <form method="POST" action="{% url 'portfolio:select' %}">
+
+        <div class="row mb-3">
+                <div class="mx-auto">
+
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#slide1">功能目的</button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="slide1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                                <div class="modal-body text-center text-primary">
+                                                        投資需要長時間規劃
+                                                        <br>你AICOCO，摳摳就愛你
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+
+
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#slide3">系統計算</button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="slide3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                                <div class="modal-body text-center text-primary">
+                                                        風險分級1~6<br>
+                                                        運算投資分布圖
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+
+                </div>
+        </div>
+
+        <div class="alert alert-primary " style="text-align: center; font-size:30px; font-weight: 600 ">STEP1 : 設定投資目的</div>
+        <div class="row " style="text-align: center ">
+                <div class="col ">
+                        <form method="POST" action="{% url 'portfolio:select' %} ">
                                 {% csrf_token %}
-                                <span style="line-height: 2.5">我的投資目標是</span>
-                                <select name="objective" id="objective" style="border:none; width:100px; border-bottom:1px solid #474747; text-align: center; color:#27aaf2">
+                                <span style="line-height: 2.5 ">我的投資目標是</span>
+                                <select name="objective" id="objective " style="border:none; width:100px; border-bottom:1px
+                solid #474747; text-align: center; color:#27aaf2 ">
                                         <option value="退休">退休</option>
                                         <option value="教育">教育</option>
                                         <option value="結婚">結婚</option>
@@ -15,23 +52,27 @@
                                         <option value="其他">其他</option>
                                 </select>
                                 <br>
-                                <span style="line-height: 2.5">我希望能夠投資</span>
-                                <input name="duration" type="number" maxlength="2" tabindex="-1" min="1" max="45" style="border:none; width:70px; border-bottom:1px solid #474747; text-align: center; color:#27aaf2"> 年之後，
+                                <span style="line-height: 2.5 ">我希望能夠投資</span>
+                                <input name="duration" type="number" maxlength="2 " tabindex="-1 " min="1 " max="45
+                " style="border:none; width:70px; border-bottom:1px solid #474747; text-align: center; color:#27aaf2 "> 年之後，
                                 <br>
-                                <span style="line-height: 2.5">存款達到$</span>
-                                <input name="targetFV" type="number" maxlength="9" style="border:none; width:200px; border-bottom:1px solid #474747; text-align: center; color:#27aaf2">元
+                                <span style="line-height: 2.5 ">存款達到$</span>
+                                <input name="targetFV" type="number" maxlength="9 " style="border:none; width:200px;
+                border-bottom:1px solid #474747; text-align: center; color:#27aaf2 ">元
                                 <br>
-                                <span style="line-height: 2.5">投資的起始資金是$</span>
-                                <input name="startDeposit" type="number" maxlength="9" style="border:none; width:200px; border-bottom:1px solid #474747; text-align: center; color:#27aaf2">元
+                                <span style="line-height: 2.5 ">投資的起始資金是$</span>
+                                <input name="startDeposit" type="number" maxlength="9 " style="border:none; width:200px;
+                border-bottom:1px solid #474747; text-align: center; color:#27aaf2 ">元
                                 <br>
-                                <span style="line-height: 2.5">我能承受的風險是</span>
-                                <select name="risk_choices" style="border:none; width:240px; border-bottom:1px solid #474747; text-align: center; color:#27aaf2">
+                                <span style="line-height: 2.5 ">我能承受的風險是</span>
+                                <select name="risk_choices" style="border:none; width:240px; border-bottom:1px solid #474747;
+                text-align: center; color:#27aaf2 ">
                                         <option value="高風險">高風險(高報酬)</option>
                                         <option value="中風險">中風險(一般報酬)</option>
                                         <option value="低風險">低風險(穩定報酬)</option>
                                 </select>
                                 <br>
-                                <button type="submit" class="btn btn-lg btn-primary" >下一步</a>
+                                <button type="submit" class="btn btn-lg btn-primary">下一步</a>
                         </form>
                 </div>
         </div>

@@ -18,15 +18,16 @@ def index(request):
 
 def company_info(request):
     title = "Company Infomations"
-    comps= COMP.objects.all()      
+    comps= COMP.objects.exclude(CompanyID__in= [2311, 2325, 3697])      
     datas= STPR.objects.all()    
     # for comp in comps:
     #     datas= STPR.objects.filter(CompanyID= comp.CompanyID)     
     if request.method == 'POST':
         compid= int(request.POST['tickerNumber']    )
-        comps= COMP.objects.get(CompanyID=compid)  
-        datas= STPR.objects.get(CompanyID=compid, Date__icontains= '107/06/01')           
-        rows= zip([comps,], [datas,])
+        comps= COMP.objects.filter(CompanyID__icontains=compid)  
+        datas= STPR.objects.filter(CompanyID__CompanyID__icontains=compid, Date__icontains= '107/06/01')           
+        # rows= zip([comps,], [datas,])
+        rows= zip([comp for comp in comps], [data for data in datas])
         return render(request, 'trastrasim/comps.html', locals())    
            
     rows= zip([comp for comp in comps], [data for data in datas.filter(Date__icontains= '107/06/01')])
@@ -51,7 +52,7 @@ def strategy_choice(request,id):
         benefit= net[6]
         benesum= net[7]
         cont= net[8]
-        contl= cont[-1]
+        contl= net[9]
         rows= zip(cont,buy,buyP,sell,sellP,benefit,benesum)
         # scripts= net[7]
         # div= net[8]

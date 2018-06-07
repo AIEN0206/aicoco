@@ -30,13 +30,16 @@
         </div>
 
         <div class="col"> 
-            <h5>{{netBcrPY}}</h5>
+            <h5>{{netBcrPY}}%</h5>
             <h7>年化報酬率</h7>
         </div>
 
         <div class="col" style="text-align: right">
-                  <a class="btn btn-outline-dark" href="{% url 'trastrasim:companyinfo' %}" role="button">
+            <a class="btn btn-outline-dark" href="{% url 'trastrasim:companyinfo' %}" role="button">
             <i class="fas fa-chart-pie"></i> 回策略中心</a> </a>  
+            <!-- <hr> -->
+            <a class="btn btn-outline-dark" href="#" role="button" onclick="history.back()">
+            <i class="fas fa-arrow-alt-circle-left"></i> Last Page</a>
         </div>
      
         <hr>

@@ -13,7 +13,7 @@
                     <form method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
                         <div class="row">
-                            <div class="col">
+                            <div class="col-5">
 
                                 <label for="tickerN" class="sr-only">Ticker Number</label>
                                 <input type="text" class="form-control" id="tickerNumber" placeholder="搜尋代碼" name="tickerNumber">
@@ -23,9 +23,13 @@
 
                                 <button type="submit" class="btn btn-primary mb-2">Search</button>
                             </div>
+                            <div class="col">
+                                <a class="btn btn-primary mb-2" href="{% url 'trastrasim:companyinfo' %}" role="button">
+                                    Reset</a>
+                            </div>
                         </div>
+                    </form>
                 </div>
-                </form>
             </div>
         </div>
         <table class="table">

@@ -151,8 +151,9 @@ class Simulator():
                         ben.append(round(sellP[-1]-buyP[-1],2))
                         benS.append(round(sum(ben),2))
                         tradt+= 1
-                        cont.append(tradt)               
-                                     
+                        cont.append(tradt)           
+                        lastrad= cont[-1]
+                                                 
                 break
             index+= 1
                 
@@ -190,10 +191,10 @@ class Simulator():
         with open(r'trastrasim\templates\out2.html','w') as f:
             f.write(html)
 
-        return netBC,buy,buyP,costC,sell,sellP,ben,benS,cont
+        return netBC,buy,buyP,costC,sell,sellP,ben,benS,cont,lastrad
         
     def strategy2(self):
-        cont= [1]
+        cont= []
         netBC= []
         buy= []
         buyP= []
@@ -207,6 +208,7 @@ class Simulator():
         benefitC= 0
         benefitO= 0
         own= 0
+        tradt= 0
         for data in self.datas:            
             while index < len(self.datas):
 
@@ -214,9 +216,13 @@ class Simulator():
                     buy.append(self.date[index])
                     buyP.append(self.close[index])
                     cost0=  self.close[index]
+                    cost1= cost0
                     costC+= self.close[index]
                     costO+= self.open[index]
                     own= 1
+                    tradt+= 1
+                    cont.append(tradt)  
+                    lastrad0= cont[-1]
 
                 elif self.close[index] >= cost0:                         
                     sell.append(self.date[index])
@@ -225,13 +231,20 @@ class Simulator():
                     benefitO+= self.open[index]*own
                     netBC= round(benefitC-costC,2)      
                     netBCP= netBC/costC                                  
-                    own= 0
-                    ben.append(round(sellP[-1]-buyP[-1],2))                    
-                    benS.append(round(sum(ben),2))                    
-                
+                    ben.append(round(sellP[-1]*own-cost1,2))                    
+                    benS.append(round(sum(ben),2))      
+                    lastrad= lastrad0
+                    own= 0                      
+              
                 else:
                     buy.append(self.date[index])
                     buyP.append(self.close[index])
+                    sell.append('')
+                    sellP.append('')  
+                    cont.append('')           
+                    ben.append(0)                    
+                    benS.append(0)    
+                    cost1+= round(buyP[-1],2)
                     costC+= self.close[index]
                     costO+= self.open[index]
                     own+= 1
@@ -273,7 +286,7 @@ class Simulator():
         with open(r'trastrasim\templates\out.html','w') as f:
             f.write(html)
     
-        return netBC,buy,buyP,costC,sell,sellP,ben,benS,cont
+        return netBC,buy,buyP,costC,sell,sellP,ben,benS,cont,lastrad
 
    
     def strategy3(self):
@@ -316,5 +329,6 @@ class Simulator():
         netBO= benefitO-costO
         netBOP= netBO/costO
     
-        return netBC,buy,buyP,costC,sell,sellP,ben
+        return netBC,buy,buyP,costC,sell,sellP,ben,benS,cont,lastrad
+
         
